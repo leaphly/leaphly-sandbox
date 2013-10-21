@@ -1,0 +1,57 @@
+{% extends "SimplePurchaseProcessBundle::layout.html.twig" %}
+
+{% block title "leaphly cart purchase process demo on symfony2" %}
+
+{% block body %}
+
+<div class="col-md-12">
+<h4>Hello {{ app.security.getToken().getUser().getUsername() }}</h4>
+<p>Enter any fake payment details.</p>
+
+<form action="{{ targetPath }}" method="post">
+
+    <div class="form-group row" >
+        <label for="city" class="col-lg-5 control-label">Car holder name</label>
+        <div class="col-lg-5">
+            {{ form_widget(formCreditCard.card_holder, {'attr': {"class":"form-control login-field"} } ) }}
+        </div>
+    </div>
+    <div class="form-group row" >
+        <label for="city" class="col-lg-5 control-label">Number</label>
+        <div class="col-lg-5">
+            {{ form_widget(formCreditCard.number, {'attr': {"class":"form-control login-field"} } ) }}
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="city" class="col-lg-5 control-label">Date</label>
+        <div class="col-lg-5">
+            {{ form_widget(formCreditCard.expiry_date_month, {'attr': {'class': "dropdown"} } ) }}
+            {{ form_widget(formCreditCard.expiry_date_year, {'attr': {'class': "dropdown"} } ) }}
+        </div>
+    </div>
+
+    <div class="form-group row" >
+        <label for="city" class="col-lg-5 control-label">Cvv</label>
+        <div class="col-lg-5">
+            {{ form_widget(formCreditCard.cvv, {'attr': {"class":"form-control login-field"} } ) }}
+        </div>
+    </div>
+
+
+    <div class="form-group row" >
+        <label for="city" class="col-lg-5 control-label">Terms</label>
+        <div class="col-lg-5">
+            {{ form_widget(formCreditCard.terms, {'attr': {"class": " "} } ) }}
+        </div>
+    </div>
+
+    <div class="form-group row" >
+        <div class="col-lg-5">
+            {{ form_widget(formCreditCard.pay, {'attr': {"class": "btn btn-primary btn-lg btn-block"} } ) }}
+        </div>
+    </div>
+
+</form>
+</div>
+{% endblock %}
+{% set code = code(_self) %}

@@ -1,0 +1,19 @@
+doctrine_mongodb:
+    connections:
+        default:
+            server: mongodb://localhost:27017
+            options: {}
+    default_database: test_database
+    document_managers:
+        default:
+            auto_mapping: true
+
+leaphly_cart:
+    db_driver: mongodb
+    cart_class: Acme\CartBundle\Document\Cart
+    product_family_provider: acme_cart.product_family_provider
+    roles:
+        full:
+            form: acme_cart.cart.form.type
+        limited:
+            form: acme_cart.cart.limited.form.type

@@ -1,0 +1,34 @@
+leaphly_content:
+    resource: "@LeaphlyContentBundle/Resources/config/routing.xml"
+    prefix:   /
+
+simple_purchase_process:
+    resource: "@SimplePurchaseProcessBundle/Resources/config/routing.xml"
+    prefix:   /purchase-process
+
+leaphly_cart:
+    type: rest
+    resource: "@AcmeCartBundle/Resources/config/rest.xml"
+    prefix:   /api/v1/
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+login:
+    pattern:   /login
+    defaults:  { _controller: SimplePurchaseProcessBundle:Security:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    path:   /logout
+
+# used to create the route via template handler
+documentation:
+    path:     /
+    host:     doc.leaphly.org

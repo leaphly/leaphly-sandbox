@@ -1,0 +1,41 @@
+{% extends "LeaphlyContentBundle::skeleton.html.twig" %}
+
+{% block title 'Purchase Process Symfony2 e-commerce' %}
+
+{% block content %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="flash-message">
+            <em>Notice</em>: {{ flashMessage }}
+        </div>
+    {% endfor %}
+
+<div class="container">
+    <div class="row align-center">
+        <div class="col-md-8 login">
+            <div class="login-screen purchase process">
+                {% block body %}
+                {% endblock %}
+            </div>
+        </div>
+        <div class="login col-md-4">
+            <div class="cart todo">
+                Loading cart...
+            </div>
+        </div>
+    </div>
+</div>
+{% if code is defined %}
+<div class="container">
+    <div class="row align-center">
+        <div class="col-md-12">
+            <h4>Code behind this page</h4>
+            <div class="block">
+                <div class="leaphly-content">{{ code|raw }}</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}

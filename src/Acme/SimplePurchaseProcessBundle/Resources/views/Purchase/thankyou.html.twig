@@ -1,0 +1,12 @@
+{% extends "SimplePurchaseProcessBundle::layout.html.twig" %}
+
+{% block title "leaphly cart purchase process demo on symfony2" %}
+
+{% block body %}
+    Hello {{ app.security.getToken().getUser().getUsername() }}
+    thank you
+
+    {{ cart.id }}
+    {{ cart.state }}
+{% endblock %}
+{% set code = code(_self) %}

@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+
+    <parameters>
+        <parameter key="acme_tshirt.item_handler.full_access.class">Acme\Product\TshirtBundle\Handler\ItemHandlerFullAccess</parameter>
+        <parameter key="acme_tshirt.item_handler.limited_access.class">Acme\Product\TshirtBundle\Handler\ItemHandler</parameter>
+        <parameter key="acme_tshirt.item.class">Acme\Product\TshirtBundle\Entity\TshirtItem</parameter>
+        <parameter key="acme_tshirt.product.class">Acme\Product\TshirtBundle\Entity\TshirtProduct</parameter>
+    </parameters>
+
+    <services>
+        <service id="acme_tshirt.cart_item.handler_limited" class="%acme_tshirt.item_handler.limited_access.class%">
+            <argument>%acme_tshirt.item.class%</argument>
+            <argument type="service" id="form.factory"/>
+            <tag name="godfather.strategy" instance="limited" context_name="item_handler" context_key="TshirtProduct" />
+        </service>
+
+        <service id="acme_tshirt.cart_item.handler_full" class="%acme_tshirt.item_handler.full_access.class%">
+            <argument>%acme_tshirt.item.class%</argument>
+            <argument type="service" id="form.factory"/>
+            <tag name="godfather.strategy" instance="full" context_name="item_handler" context_key="TshirtProduct" />
+        </service>
+</services>
+
+</container>

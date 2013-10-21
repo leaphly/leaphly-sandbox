@@ -1,0 +1,33 @@
+{% extends "SimplePurchaseProcessBundle::layout.html.twig" %}
+
+{% block title "leaphly cart purchase process demo on symfony2" %}
+
+{% block body %}
+{% if error %}
+<div>{{ error.message }}</div>
+{% endif %}
+    <div class="col-md-offset-1 login-icon col-md-3">
+        <h4>Please login in order to checkout, <small>using "geek" for username and also for password</small></h4>
+    </div>
+    <div class="login-form col-md-4">
+    <form action="{{ path('login_check') }}" method="post">
+        <div class="form-group">
+            <input type="text" placeholder="geek" value="geek" class="form-control login-field" id="username" name="_username">
+            <label for="username" class="login-field-icon fui-user"></label>
+        </div>
+
+        <div class="form-group">
+            <input type="password" placeholder="Password" value="geek" class="form-control login-field" id="password" name="_password" />
+            <label for="password" class="login-field-icon fui-lock"></label>
+        </div>
+        {% if target_path is defined %}
+            <input type="hidden" name="_target_path" value="{{ target_path }}" />
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">login</button>
+        <a href="#" class="login-link">Lost your password?</a>
+    </form>
+    </div>
+{% endblock %}
+
+{% set code = code(_self) %}

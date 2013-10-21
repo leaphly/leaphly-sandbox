@@ -1,0 +1,49 @@
+<script id="cart-template" type="text/x-handlebars-template">
+    {% raw %}
+    <div class="cart-head">
+        <h5 class="centered">Shopping Cart</h5>
+        <p class="semi-hidden mini-text centered">Cart ID ⇨ {{ cart.id }}</p>
+    </div>
+    {{#if cart.is_empty}}
+    <div class="cart-is-empty">
+        <img src="/bundles/leaphlycontent/images/icons/paper-bag.svg">
+        <p>Empty</p>
+    </div>
+    {{/if}}
+    <ul>
+        {{#each cart.items}}
+        {{> item }}
+        {{/each}}
+    </ul>
+    {{#if cart.actions_enabled }}
+    <div class="total">
+        {{#if cart.finalPrice }}
+        <span class="price">{{ cart.finalPrice }}<span class="currency">{{ cart.currency }}</span></span>
+        {{/if  }}
+        <span class="price strike">{{ cart.price }} <span class="currency">{{ cart.currency }} </span></span>
+    </div>
+    <div class="clearfix"></div>
+    <div class="actions">
+        <a href="/purchase-process/authenticate?cart_id={{ cart.id }}" class="btn btn btn-inverse btn-lg btn-block">Checkout (using container API)</a>
+        <a href="/purchase-process/rest/authenticate?cart_id={{ cart.id }}" class="btn btn btn-info btn-lg btn-block">Checkout (consuming RESTful API)</a>
+    </div>
+    {{/if }}
+    <a href="#" class="delete-action" class="btn btn-danger btn-xs ">Reset cart</a>
+
+    {% endraw %}
+</script>
+
+<script id="item-template" type="text/x-handlebars-template">
+    {% raw %}
+    <li class="item" data-id="{{ id }}">
+        <div>
+            <h5>{{ name }}</h5>
+            {{! If There is a final price show it}}
+            {{#each this}}
+                {{{ print @key this }}}
+            {{/each}}
+        </div>
+        <div id="delete{{ id }}" class="delete glyphicon glyphicon-trash pointer"></div>
+    </li>
+    {% endraw %}
+</script>

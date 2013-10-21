@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<routes xmlns="http://friendsofsymfony.github.com/schema/rest"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://friendsofsymfony.github.com/schema/rest
+    https://github.com/whiteoctober/RestBundle/blob/master/Resources/config/schema/routing/rest_routing-1.0.xsd">
+
+    <import id="carts" type="rest" resource="leaphly_cart.cart.limited.controller" name-prefix="api_1_" />
+    <import id="cartItems" type="rest" resource="leaphly_cart.cart_item.limited.controller" name-prefix="api_1_" parent="carts" />
+    <import id="carts_full" type="rest" resource="leaphly_cart.cart.full.controller" name-prefix="api_1_full_" prefix="/full" />
+    <import id="cartItems_full" type="rest" resource="leaphly_cart.cart_item.full.controller" name-prefix="api_1_full_" parent="carts_full" prefix="/full" />
+    <import id="cartTransitions" type="rest" resource="Leaphly\CartBundle\Controller\CartTransitionsController" name-prefix="api_1_" parent="carts" />
+</routes>

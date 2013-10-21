@@ -1,0 +1,43 @@
+
+finite_finite:
+    cart_flow:
+        class: %leaphly_cart.model.cart.class%
+        states:
+            101: # Cart 1x1 Created
+                type:  initial
+                properties:
+                    description: Cart is open.
+                    cart: true
+            201: # Order 2x1 Created
+                type:  normal
+                properties:
+                    description: Order has started.
+                    order: true
+            202: # Order 2x2 Success
+                type: final
+                properties:
+                    description: Order success.
+                    order: true
+            500: # Closed
+                type: final
+                properties:
+                    description: Cart or Order is closed, something bad happended.
+        transitions:
+            cart_write:
+                from:  [101]
+                to:    101
+            delete:
+                from:  [101, 201, 202]
+                to:    500
+            order_start:
+                from:  [101, 201]
+                to:    201
+            order_write:
+                from:  [201]
+                to:    201
+            order_close:
+                from:  [201]
+                to:    500
+            order_success:
+                from:  [201, 204]
+                to:    204

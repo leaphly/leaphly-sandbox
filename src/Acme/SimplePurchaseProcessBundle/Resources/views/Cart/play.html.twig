@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="demo-row typography-row row demo-tiles" id="demo">
+        <h3 class="demo-panel-title">Demo
+            <a title="Permalink to this headline" href="#demo" class="headerlink">¶</a>
+        </h3>
+        <div class="col-md-4">
+            <div class="login">
+                <div class="login-screen demo-row typography-row row">
+                    <div class="login-icon  col-md-4">
+                        {% image '@LeaphlyContentBundle/Resources/public/images/icons/shirt.svg'
+                        %}<img src="{{ asset_url }}" alt="Great Shirt" class="tile-image"/>
+                        {% endimage %}
+                        <h4>Add
+                            <small>Shirt to cart</small>
+                            <p>{{ tshirt_product.price }} &euro;</p>
+                        </h4>
+                        <p>{{ tshirt_product.name }}</p>
+                    </div>
+                    <div class="login-form  item-form col-md-8">
+                        <form action="{{path('api_1_post_cart_item', {'cart_id': 123}) }}" method="post" {{ form_enctype(tshirt_form) }}>
+                            {{form(tshirt_form)}}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="login">
+                <div class="login-screen demo-row typography-row row">
+                    <div class="login-icon col-md-4">
+                        {% image '@LeaphlyContentBundle/Resources/public/images/icons/ticket.svg'
+                        %}<img src="{{ asset_url }}" alt="Conference Ticket" class="tile-image"/>
+                        {% endimage %}
+                        <h4>Add
+                            <small>Conference Ticket to Cart</small>
+                            <p>{{ ticket_product.price }} &euro;</p>
+                        </h4>
+                        <p>{{ ticket_product.name }}</p>
+
+                    </div>
+
+                    <div class="login-form item-form col-md-8">
+                        <form action="{{path('api_1_post_cart_item', {'cart_id': 123}) }}" method="post" {{ form_enctype(ticket_form) }}>
+                            {{form(ticket_form)}}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="login">
+
+                <div class="login-screen login-screen-inverse row cart todo">
+                    Cart
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</a>
+<!-- container -->

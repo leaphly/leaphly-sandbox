@@ -1,0 +1,86 @@
+<div class="bs-example bs-example-tabs">
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active"><a href="#snippet-add-product-php-service" data-toggle="tab">PHP using service container</a></li>
+    <li class=""><a href="#snippet-add-product-php-rest" data-toggle="tab">PHP consuming RESTful API</a></li>
+    <li class=""><a href="#snippet-add-product-ajax" data-toggle="tab">AJAX</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <p>The domain of the tshirt is totally different the domain of a ticket.</p>
+    <div class="tab-pane fade active in" id="snippet-add-product-php-service">
+<pre><code class="php">use Guzzle\Http\Client;
+$client = new Client();
+// Populates the options for the domain of the tshirt
+$tshirtId = 3; // this is the product id
+$tshirtOption = new \Your\YourTshirt\Entity\TshirtOption();
+$tshirtOption->setQuantity(4);
+$tshirtType = new \Your\YourTshirt\Entity\TshirtType();
+$tshirtType->setColor('red');
+// Sends the post to the cart in order to create an Item
+$this->container->get('leaphly_cart.item.service')->post($cart, array($tshirtId, $tshirtOption, $tshirtType));
+
+// Populates the domain of the concert, it doesn't have quantity but 'customer'
+$concertId = 10; // this is the product id
+$customerType = new \Your\YourConcert\Entity\CustomerType();
+$customerType->setAdult(2);
+$customerType->setChild(1);
+$note = 'Customer usually screams during the concert';
+$customerType->setSomethigReallyCloseToTheConcertDomain('yes')
+// Sends the post to the cart in order to create an Item
+$this->container->get('leaphly_cart.item.service')->post($cart, array($concertId, $customerType, $note));
+echo $response->getStatus();
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade" id="snippet-add-product-php-rest">
+<pre><code class="php">use Guzzle\Http\Client;
+$client = new Client();
+// Populates the options for the domain of the tshirt
+$tshirtId = 3; // this is the product id
+$tshirtOption = new \Your\YourTshirt\Entity\TshirtOption();
+$tshirtOption->setQuantity(4);
+$tshirtType = new \Your\YourTshirt\Entity\TshirtType();
+$tshirtType->setColor('red');
+// Sends the post to the cart in order to create an Item
+$response = $client->post("carts/$cartId/items.json", array($tshirtId, $tshirtOption, $tshirtType))->send();
+echo $response->getStatus();
+
+// Populates the domain of the concert, it doesn't have quantity but 'customer'
+$concertId = 10; // this is the product id
+$customerType = new \Your\YourConcert\Entity\CustomerType();
+$customerType->setAdult(2);
+$customerType->setChild(1);
+$note = 'Customer usually screams during the concert';
+$customerType->setSomethigReallyCloseToTheConcertDomain('yes')
+// Sends the post to the cart in order to create an Item
+$response = $client->post("carts/$cartId/items.json", array($concertId, $customerType, $note))->send();
+echo $response->getStatus();
+</code></pre>
+    </div>
+    <div class="tab-pane fade" id="snippet-add-product-php-service">
+<pre><code class="php">todo
+    </code></pre>
+    </div>
+    <div class="tab-pane fade" id="snippet-add-product-ajax">
+<pre><code class="javascript">$('.item-form form').each(function(id, form){
+    $(form).submit(function(evt){
+    var route = Routing.generate('api_1_post_cart_item',{cart_id: cart_manager.get_id(), _format: 'json'});
+    var data = $(this).serialize();
+    $.ajax({
+        url: route,
+        data: data,
+        type: "POST",
+        success: function(response){
+            cart_manager.reDraw(response);
+        },
+        error: function(content){
+            cart_manager.handleError(content);
+        }
+    });
+    evt.preventDefault();
+    return false;
+    });
+});
+</code></pre>
+    </div>
+</div>
+</div>

@@ -1,0 +1,32 @@
+security:
+    firewalls:
+        secured_area:
+            pattern:    ^/
+            anonymous: ~
+            form_login:
+                login_path:  login
+                check_path:  login_check
+            http_basic:
+                realm: "Secured Demo Area"
+            logout:
+                path:   /logout
+                target: /login
+                invalidate_session: false
+
+    access_control:
+        - { path: ^/purchase-process/authenticate, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: (...)/transitions/, roles: [ROLE_CONSUMER,ROLE_ADMIN] }
+        - { path: (...)/full/, roles: [ROLE_CONSUMER,ROLE_ADMIN] }
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/purchase-process, roles: ROLE_ADMIN}
+        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin: { password: admin, roles: 'ROLE_ADMIN' }
+                    geek: { password: geek, roles: 'ROLE_ADMIN' }
+                    consumer: { password: consumer, roles: 'ROLE_CONSUMER' }
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext

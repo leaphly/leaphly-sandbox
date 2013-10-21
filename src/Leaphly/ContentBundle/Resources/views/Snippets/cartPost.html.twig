@@ -1,0 +1,43 @@
+<div class="bs-example bs-example-tabs">
+    <ul id="myTab" class="nav nav-tabs">
+        <li class="active"><a href="#snippet-create-cart-php-service" data-toggle="tab">PHP using service container</a></li>
+        <li class=""><a href="#snippet-create-cart-php-rest" data-toggle="tab">PHP consuming RESTful API</a></li>
+        <li class=""><a href="#snippet-create-cart-ajax" data-toggle="tab">AJAX</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane fade active in" id="snippet-create-cart-php-service">
+<pre><code class="php">$cart = $this->container->get('leaphly_cart.cart.service')->post();
+
+// get the cart given the $cartId
+$cart = $this->container->get('leaphly_cart.cart.service')->get($cartId);</code></pre>
+        </div>
+        <div class="tab-pane fade" id="snippet-create-cart-php-rest">
+<pre><code class="php">use Guzzle\Http\Client;
+$client = new Client();
+$cart = $client->post("http://leaphly.org/api/v1/carts.json")->send();
+
+// get the cart given the $cartId
+$cart = $client->get("http://leaphly.org/api/v1/carts/$cartId.json")->send();</code></pre>
+        </div>
+        <div class="tab-pane fade" id="snippet-create-cart-ajax">
+<pre><code class="javascript">$.post("http://leaphly.org/api/v1/carts.json", data, function(cart){
+    //This is your new cart.
+    callback(cart);
+});
+
+// get the cart given the $cartId
+$.ajax({
+    url: "http://demoapplication.com/api/v1/carts/" + cart_id + ".json",
+    type: "GET",
+    success: function(cart){
+        //play with the cart object.
+        callback(cart);
+    },
+    error: function(data){
+        //handle the errors.
+        oops(data);
+    }
+});</code></pre>
+        </div>
+    </div>
+</div>

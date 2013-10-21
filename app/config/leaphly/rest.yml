@@ -1,0 +1,54 @@
+
+sensio_framework_extra:
+    view: { annotations: false }
+    router: { annotations: true }
+    request: { converters: true }
+
+fos_rest:
+    serializer:
+        serialize_null: true
+    view:
+# default_engine: php
+        view_response_listener: force
+        force_redirects:
+          html: true
+# xml: true
+        formats:
+            json: true
+            xml: true
+            rss: false
+        templating_formats:
+            html: true
+        mime_types:
+            json: ['application/json', 'application/x-json', 'application/vnd.example-com.foo+json']
+            rss: 'application/rss+xml'
+            jpg: 'image/jpeg'
+            png: 'image/png'
+    body_listener: true
+    param_fetcher_listener: force
+    allowed_methods_listener: true
+    access_denied_listener:
+        json: true
+    format_listener:
+        rules:
+          - { path: '^/', priorities: ['html','json', 'xml'], fallback_format: html, prefer_extension: true }
+    routing_loader:
+        default_format: ~
+    exception:
+        codes:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': 404
+        messages:
+            'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
+
+nelmio_api_doc:
+    name: Leaphly API
+
+fos_js_routing:
+    routes_to_expose:
+        - api_1_get_cart
+        - api_1_delete_cart
+        - api_1_post_cart
+        - api_1_put_cart
+        - api_1_post_cart_item
+        - api_1_delete_cart_item
+        - api_1_delete_cart_items
