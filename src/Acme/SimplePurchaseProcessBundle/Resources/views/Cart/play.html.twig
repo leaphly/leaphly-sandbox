@@ -17,7 +17,7 @@
                         <p>{{ tshirt_product.name }}</p>
                     </div>
                     <div class="login-form  item-form col-md-8">
-                        <form action="{{path('api_1_post_cart_item', {'cart_id': 123}) }}" method="post" {{ form_enctype(tshirt_form) }}>
+                        <form name="tshirt_form" id="tshirt_form" action="{{path('api_1_post_cart_item', {'cart_id': 123}) }}" method="post" {{ form_enctype(tshirt_form) }}>
                             {{form(tshirt_form)}}
                         </form>
                     </div>
@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="login-form item-form col-md-8">
-                        <form action="{{path('api_1_post_cart_item', {'cart_id': 123}) }}" method="post" {{ form_enctype(ticket_form) }}>
+                        <form  name="ticket_form" id="ticket_form" action="{{path('api_1_post_cart_item', {'cart_id': 123}) }}" method="post" {{ form_enctype(ticket_form) }}>
                             {{form(ticket_form)}}
                         </form>
                     </div>
@@ -50,7 +50,6 @@
 
         <div class="col-md-4">
             <div class="login">
-
                 <div class="login-screen login-screen-inverse row cart todo">
                     Cart
                 </div>

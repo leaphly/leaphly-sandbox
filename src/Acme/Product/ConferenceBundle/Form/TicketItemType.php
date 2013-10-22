@@ -53,7 +53,7 @@ class TicketItemType extends AbstractType
                     'label' => 'Children',
                     'attr' => array('class'=>'form-control select')
                 ))
-             ->add('save', 'submit', array('label' => ' Add', 'attr' => array('class' => 'btn glyphicon glyphicon-shopping-cart btn btn-inverse btn-lg btn-block')));
+             ->add('ticket_save', 'submit', array('label' => ' Add', 'attr' => array('class' => 'btn glyphicon glyphicon-shopping-cart btn btn-inverse btn-lg btn-block')));
     }
 
     /**

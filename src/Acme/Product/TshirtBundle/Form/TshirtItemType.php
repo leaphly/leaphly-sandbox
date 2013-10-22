@@ -46,8 +46,8 @@ class TshirtItemType extends AbstractType
                 'label' => 'Quantity',
                 'attr' => array('class'=>'form-control select')
             ))
-            ->add('save', 'submit', array('label' => ' Add', 'attr' => array('class' => 'btn glyphicon glyphicon-shopping-cart btn btn-inverse btn-lg btn-block')));
-
+            ->add('tshirt_save', 'submit', array('label' => ' Add', 'attr' => array('class' => 'btn glyphicon glyphicon-shopping-cart btn btn-inverse btn-lg btn-block')))
+        ;
     }
 
     /**
