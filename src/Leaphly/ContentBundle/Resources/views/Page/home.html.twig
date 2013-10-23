@@ -3,7 +3,6 @@
 {% block title %}Leaphly shopping cart for php Symfony2{% endblock %}
 
 {% block content %}
-
     <div class="container" >
         <div class="demo-row typography-row row" id="mission-statement">
             <h2 class="demo-panel-title">Mission Statement
@@ -142,7 +141,7 @@
             </div>
         </div
 
-        <!-- Modal -->
+                <!-- Modal -->
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <br><br>
             <div class="modal-dialog">
@@ -152,8 +151,8 @@
                         <h4 class="modal-title">Install the sandbox with composer</h4>
                     </div>
                     <div class="modal-body">
-<pre>php composer.phar -sdev create-project leaphly/leaphly-sandbox leaphly-sandbox/</pre>
-        <a href="{{ path('documentation') }}book/sandbox.html" target="_blank">More info on documentation/sandbox</a>
+                        <pre>php composer.phar -sdev create-project leaphly/leaphly-sandbox leaphly-sandbox/</pre>
+                        <a href="{{ path('documentation') }}book/sandbox.html" target="_blank">More info on documentation/sandbox</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Yeah</button>
@@ -197,202 +196,29 @@
 
     <!-- rendering the demo -->
     {{ render(controller('SimplePurchaseProcessBundle:Cart:play')) }}
-
-    <section class="feature">
-        <div class="container">
-            <div class="demo-row typography-row row" id="why-leaphly-cart">
-                <h3 class="demo-panel-title">Why another e-commerce?
-                    <a title="Permalink to this headline" href="#why-leaphly-cart" class="headerlink">¶</a>
-                </h3>
-                <div class="col-lg-12 ">
-                    <p>
-                        Actually we consider this project to be only a little part of an e-commerce architecture,
-                        we are providing tool to build a <b>custom shopping-cart</b>.
-                    </p>
-
-                    <p>
-                        There are clearly many e-commerce solutions available already,
-                        but they tend to provide monolithic packages,
-                        some are shipped by many coupled bundles, others handle multi-products diversity with EAV.
-                        Many carry a certain amount of legacy baggage which make them less than
-                        <b>ideal for developing highly custom applications</b>,
-                        in contrast to what is possible with
-                        <a href="http://www.symfony.com" target="_blank">Symfony2</a>.
-                    </p>
-
-                    <h4>Developer Developer Developer Decouple Decouple Decouple</h4>
-                    {% image '@LeaphlyContentBundle/Resources/public/images/leaphly-soa-square.jpg'
-                    %}<img src="{{ asset_url }}" alt="SOA" class="right"/>
-                    {% endimage %}
-
-                    <p>
-                        Selecting the right e-commerce application
-                        for the long term can be a difficult exercise, It’s not
-                        easy to base a decision on both current requirements and a vague, undetermined set of future
-                        needs that have not yet even hit the planning
-                        stages.
-                    </p>
-
-                    <p>
-                        The same principles for the object oriented design, could also be extended to services,
-                        using Service Oriented Architecture, <b>build application out of smaller ones</b>.
-                    </p>
-
-                    <p>
-                        Because of their independent, modular nature, services can be used
-                        like building blocks which can have different architecture and can be changed/updated independently.
-
-                        Users could be handled by a CRM or by a simple UserBundle, the products showcase by a CMF
-                        and the checkout process by another application (maybe a front-end application),
-                        the report and the order stats by the Business Intelligence or just a simple report application,
-                        the carts by <b>Leaphly</b> as bundle or as Cart Service via Restful interface.
-                    </p>
-
-                </div>
-                <div class="col-lg-12 ">
-                    <h4>Strategy Pattern</h4>
-                    <p>
-                        The e-commerce usually requires a product that conforms to different types of interfaces to make
-                        possible its manipulation by different processes such as the selection of the options or the
-                        order creation process.
-                    </p>
-                    <p>
-                        This leads us creating a "service layer" that will contain the business logic. A practice
-                        which many of us are accustomed to is to create services designed to manipulate entities:
-                        How to tie this logical layer to its product? How to easily go back to the right service
-                        starting from the object that needs it?
-                    </p>
-                    <p>
-                        Leaphly has been designed with this in mind, to have more products therefore different types
-                        does not preclude the freedom to use a pattern of clean development, in fact you can develop a
-                        service layer for each product, which will contain a specific business logic for it. As long as
-                        you respect the right interface, it will be used by the shopping cart.
-                    </p>
-
-
-                    <p><b>The strategy pattern</b> defines a family of algorithms, encapsulates each one,
-                        and makes them interchangeable. Strategy lets the algorithm
-                        vary independently from clients that use it.</p>
-                    <p>
-                        From Wikipedia:
-                    </p>
-                    <blockquote>
-                        In computer programming, the strategy pattern (also known as the policy pattern)
-                        is a software design pattern, whereby an algorithm's behaviour
-                        can be selected at runtime. Formally speaking, the strategy pattern defines
-                        a family of algorithms, encapsulates each one, and makes them interchangeable.
-                        Strategy lets the algorithm vary independently from clients that use it.
-                        Strategy is one of the patterns included in the influential book
-                        "Design Patterns" by Gamma et al. that popularized the concept
-                        of using patterns in software design.
-                    </blockquote>
-                </div>
-                <div class="col-lg-12 ">
-                    <h4 class="">Finite state machine and transitions</h4>
-                    <p>
-                        The Cart lifecycle is very important for an e-commerce project.
-                    </p>
-                    <p>
-                        Some good projects tend to hardcode states in constants:
-                        <a href="https://github.com/Sylius/SyliusSalesBundle/blob/master/Model/OrderStates.php#L19" target="_blank">Sylius/OrderStates</a> and
-                        <a href="https://github.com/vespolina/core/blob/master/lib/Vespolina/Entity/Order/Cart.php#L22" target="_blank">Vespolina/Cart::STATE_*</a><br>
-                    </p>
-                    <p>
-                        The advantage is the simplicity, and no learning curve, but the problem
-                        lies in the extensibility.
-                    </p>
-                    <p>
-                        A good approach is use a Finite State Machine. The FSM allows to configure
-                        the states and transitions via a configuration file, it allows to have
-                        a single point where stores the logic that defines the permissions.
-                    </p>
-                    <p>
-                        For example, before the payment you want to understand if the shopping-cart
-                        could move to the state of order,<br> then you want to understand
-                        if the shopping-cart is in the correct state to be transformed in a order.
-                    </p>
-                    <p>
-                        With the hard-coded states you should do something like this:
-                    </p>
-<pre><code>if ($cart->getState() == States::STATE_OPEN &&  $cart->getState() != States::STATE_LOCKED && ...) {
-    $cart->setState(STATE::STATE_LOCK);
-}
-</code></pre>
-                    <p>
-                        Using the Transition manager you just apply a given transition to a cart,
-                        and the manager modifies the state of the given cart (you have to create a configuration file).
-                    </p>
-                    <div class="bs-example bs-example-tabs">
-                        <ul id="myTab" class="nav nav-tabs">
-                            <li class="active"><a href="#code-transition-php" data-toggle="tab">PHP using service</a></li>
-                            <li class=""><a href="#code-transition-rest" data-toggle="tab">PHP consuming RESTful interface</a></li>
-                        </ul>
-                        <div id="myTabContent" class="tab-content">
-                            <div class="tab-pane fade active in" id="code-transition-php">
-                                <pre><code>$this->container->get('leaphly_cart.cart.transition')->apply($cart, 'order_start'));</code></pre>
-                            </div>
-                            <div class="tab-pane fade" id="code-transition-rest">
-<pre><code>$client = new Guzzle\Http\Client();
-$request = $client->post(
-    sprintf('http://leaphly.org/api/v1/carts/%s/transitions/order_start.json',  $cartId)
-);
-$request->setAuth('consumer', 'consumer');
-$response = $request->send();</code></pre>
-                            </div>
-                        </div>
-                    </div>
-                    <p>
-                        They seems pretty similar
-                        but you'll quickly spread the same logic in the code,
-                        even with few transitions.
-                    </p>
-                    <p>
-                        You could use Transition as service as the example above or via RESTful.
-                    </p>
-                    <p>
-                        <b>Not Invented Here:</b> leaphly project uses
-                        <a href="https://github.com/yohang/Finite">yohang/Finite</a> as FSM.
-                    </p>
-                </div>
-
-                <div class="col-lg-12 ">
-                    <h5>Create the Cart and fetch the Cart</h5>
-
-                    {% include('LeaphlyContentBundle:Snippets:cartPost.html.twig') %}
-                </div>
-
-                <div class="col-lg-12 ">
-                    <h5>Add different products and options to the cart</h5>
-                    <p>
-                        Add to cart products with different options, showing the power of multi-products,
-                        usually each product has its own options.
-                    </p>
-                    {% include('LeaphlyContentBundle:Snippets:cartItemPost.html.twig') %}
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- rendering the bigpicture section -->
+    {% include('LeaphlyContentBundle:Page:bigpicture.html.twig') %}
 {% endblock %}
 
 {% block sidebar %}
-<div id="sidebar" role="complementary" class="bs-sidebar affix affix-top well">
-    <div class="centered">
-        {% image '@LeaphlyContentBundle/Resources/public/images/favicons/32_leaphly-logo-white.png'
-        %}<img src="{{ asset_url }}" alt="leaphly symfony2 cart" />
-        {% endimage %}
+    <div id="sidebar" role="complementary" class="bs-sidebar affix affix-top well">
+        <div class="centered">
+            {% image '@LeaphlyContentBundle/Resources/public/images/favicons/32_leaphly-logo-white.png'
+            %}<img src="{{ asset_url }}" alt="leaphly symfony2 cart" />
+            {% endimage %}
+        </div>
+        <ul class="nav bs-sidenav">
+            <li><a href="#mission-statement">Mission Statement</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#shopping-cart-on-the-shoulder-of-the-giants">Shopping cart</a></li>
+            <li><a href="#demo">Demo</a></li>
+            <li><a href="#why-leaphly-cart">Why Leaphly?</a></li>
+            <li><a href="#give-a-feedback">Feedback</a></li>
+            <li><a href="{{ path('nelmio_api_doc_index') }}" target="_blank">API doc</a></li>
+            <li><a href="{{ path('documentation') }}" target="_blank">Documentation</a></li>
+        </ul>
+        <div class="centered"><a href="https://twitter.com/leaphly" class="twitter-follow-button" data-show-count="false">Follow @leaphly</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
     </div>
-    <ul class="nav bs-sidenav">
-        <li><a href="#mission-statement">Mission Statement</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#shopping-cart-on-the-shoulder-of-the-giants">Shopping cart</a></li>
-        <li><a href="#demo">Demo</a></li>
-        <li><a href="#why-leaphly-cart">Why Leaphly?</a></li>
-        <li><a href="#give-a-feedback">Feedback</a></li>
-        <li><a href="{{ path('nelmio_api_doc_index') }}" target="_blank">API doc</a></li>
-        <li><a href="{{ path('documentation') }}" target="_blank">Documentation</a></li>
-    </ul>
-    <div class="centered"><a href="https://twitter.com/leaphly" class="twitter-follow-button" data-show-count="false">Follow @leaphly</a>
-        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    </div>
-</div>
 {% endblock %}

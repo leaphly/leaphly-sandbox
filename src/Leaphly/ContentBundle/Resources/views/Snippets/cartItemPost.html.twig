@@ -16,7 +16,7 @@ $tshirtOption->setQuantity(4);
 $tshirtType = new \Your\YourTshirt\Entity\TshirtType();
 $tshirtType->setColor('red');
 // Sends the post to the cart in order to create an Item
-$this->container->get('leaphly_cart.item.service')->post($cart, array($tshirtId, $tshirtOption, $tshirtType));
+$this->container->get('leaphly_cart.item.handler')->post($cart, array($tshirtId, $tshirtOption, $tshirtType));
 
 // Populates the domain of the concert, it doesn't have quantity but 'customer'
 $concertId = 10; // this is the product id
@@ -26,7 +26,7 @@ $customerType->setChild(1);
 $note = 'Customer usually screams during the concert';
 $customerType->setSomethigReallyCloseToTheConcertDomain('yes')
 // Sends the post to the cart in order to create an Item
-$this->container->get('leaphly_cart.item.service')->post($cart, array($concertId, $customerType, $note));
+$this->container->get('leaphly_cart.item.handler')->post($cart, array($concertId, $customerType, $note));
 echo $response->getStatus();
 </code></pre>
     </div>
