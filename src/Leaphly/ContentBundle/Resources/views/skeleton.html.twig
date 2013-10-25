@@ -51,17 +51,22 @@
 </head>
 <body>
 
-{% block sidebar %}{% endblock %}
+{% block sidebar %}
+    {% include('LeaphlyContentBundle::sidebar.html.twig') %}
+{% endblock %}
 
 <div class="container">
-    <div class="demo-headline">
-        <h1 class="demo-logo"><a href="/" title="leaphly-cart">
-            <div class="logo"></div>
-            Leaphly  cart</a>
-            <small>Shopping cart built around RESTful specs.</small>
-            <small>Shopping cart thought for developers.</small>
-            <small>Shopping cart as a service.</small>
-        </h1>
+    <div class="demo-headline row">
+        <div class="col-md-3"><div class="logo"></div></div>
+        <div class="col-md-6">
+            <h1 class="demo-logo">
+                <a href="/" title="leaphly-cart">
+                Leaphly</a>
+                <small>Shopping cart built around REST specs.</small>
+                <small>Shopping cart for developers.</small>
+                <small>Shopping cart as a service.</small>
+            </h1>
+        </div>
     </div><!-- /header -->
 </div><!-- /container -->
 
@@ -93,8 +98,22 @@
 <footer>
     <div class="container">
         <div class="demo-row typography-row row">
-            <div class="col-md-7">
-                <h3 class="footer-title"></h3>
+            <div class="col-md-4 tweets-loader">
+{# latest tweets #}
+<a class="twitter-timeline"  href="https://twitter.com/search?q=leaphly"  data-widget-id="393307578484023296">Tweets about "leaphly"</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+            <!-- /col-md-7 -->
+            <div class="col-md-8">
+                <div id="footer-banner-green" class="footer-banner">
+                    <h3 class="footer-title">Leaphly Project</h3>
+                    <ul>
+                        <li><a href="https://github.com/leaphly/CartBundle" target="_blank">Github</a></li>
+                        <li><a href="https://github.com/leaphly/CartBundle/graphs/contributors" target="_blank">Contributors</a></li>
+                        <li><a href="{{ path('nelmio_api_doc_index') }}" target="_blank">API doc</a></li>
+                        <li><a href="{{ path('documentation') }}" target="_blank">Documentation</a></li>
+                    </ul>
+                </div>
                 <div class="bs-social">
                     <ul class="bs-social-buttons">
                         <li>
@@ -106,25 +125,14 @@
                         <li class="follow-btn">
                             <a href="https://twitter.com/leaphly" class="twitter-follow-button" data-show-count="false">Follow @leaphly</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                         </li>
+                        </li>
                         <li class="tweet-btn">
                             <a href="https://twitter.com/share" class="twitter-share-button" data-via="leaphly">Tweet</a>
                             <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                         </li>
                     </ul>
                 </div>
-            </div>
-            <!-- /col-md-7 -->
-            <div class="col-md-5">
-                <div id="footer-banner-green" class="footer-banner">
-                    <h3 class="footer-title">Leaphly Project</h3>
-                    <ul>
-                        <li><a href="https://github.com/leaphly/CartBundle" target="_blank">Github</a></li>
-                        <li><a href="https://github.com/leaphly/CartBundle/graphs/contributors" target="_blank">Contributors</a></li>
-                        <li><a href="{{ path('nelmio_api_doc_index') }}" target="_blank">API doc</a></li>
-                        <li><a href="{{ path('documentation') }}" target="_blank">Documentation</a></li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>

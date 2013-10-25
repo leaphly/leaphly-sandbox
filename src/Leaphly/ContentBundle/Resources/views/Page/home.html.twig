@@ -1,11 +1,12 @@
 {% extends "LeaphlyContentBundle::skeleton.html.twig" %}
 
-{% block title %}Leaphly shopping cart for php Symfony2{% endblock %}
+{% block title %}{{ content.title }}{% endblock %}
+
 
 {% block content %}
     <div class="container" >
         <div class="demo-row typography-row row" id="mission-statement">
-            <h2 class="demo-panel-title">Mission Statement
+            <h2>Mission Statement
                 <a title="Permalink to this headline" href="#mission-statement" class="headerlink">¶</a>
             </h2>
             <div class="col-md-12">
@@ -14,211 +15,236 @@
                     to the Symfony2 applications
                     or to those applications that could consume REST API.
                 </p>
+
                 <p>
-                    This software provides the tools and guidelines for building decoupled,
-                    high-quality and long-life e-commerce applications.
+                    This software provides the tools and guidelines for building <b>decoupled</b>,
+                    <b>high-quality</b> and <b>long-life</b> e-commerce applications.
                 </p>
             </div>
         </div>
-        <!-- /.demo-row -->
 
-        <div class="demo-row typography-row row" id="features">
-            <h2 class="demo-panel-title">Features
-                <a title="Permalink to this headline" href="#features" class="headerlink">¶</a>
-            </h2>
-        </div>
-        <!-- /.demo-row -->
-        <div class="row demo-tiles">
-            <div class="col-md-2">
-                <div class="tile">
-                    {% image '@LeaphlyContentBundle/Resources/public/images/icons/flask.svg'
-                    %}<img src="{{ asset_url }}" alt="Multi-product" class="tile-image"/>
-                    {% endimage %}
-                    <h3 class="tile-title">Multi-product</h3>
-
-                    <p>
-                        Support infinite products each with its personal domain.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div class="tile">
-                    {% image '@LeaphlyContentBundle/Resources/public/images/icons/fit.svg'
-                    %}<img src="{{ asset_url }}" alt="Multi-storage" class="tile-image"/>
-                    {% endimage %}
-                    <h3 class="tile-title">Multi-storage</h3>
-
-                    <p>
-                        Doctrine2 ODM and ORM.
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div class="tile">
-                    {% image '@LeaphlyContentBundle/Resources/public/images/icons/retina.svg'
-                    %}<img src="{{ asset_url }}" alt="No EAV" class="tile-image"/>
-                    {% endimage %}
-                    <h3 class="tile-title">No EAV</h3>
-
-                    <p>
-                        <del>Entity Attr. Value</del>
-                        <br> Object Oriented Programming
-                    </p>
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div class="tile">
-                    {% image '@LeaphlyContentBundle/Resources/public/images/icons/chair.svg'
-                    %}<img src="{{ asset_url }}" alt="RESTful API" class="tile-image"/>
-                    {% endimage %}
-
-                    <h3 class="tile-title">RESTful API.</h3>
-
-                    <p>Usable via Http RESTful or via Symfony2 container.</p>
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div class="tile">
-                    {% image '@LeaphlyContentBundle/Resources/public/images/icons/spray.svg'
-                    %}<img src="{{ asset_url }}" alt="No Session needed" class="tile-image"/>
-                    {% endimage %}
-
-                    <h3 class="tile-title">No Session needed.</h3>
-
-                    <p>Cart is used as a resource.</p>
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div class="tile">
-                    {% image '@LeaphlyContentBundle/Resources/public/images/icons/flag.svg'
-                    %}<img src="{{ asset_url }}" alt="States and Transitions" class="tile-image"/>
-                    {% endimage %}
-
-                    <p><b>States</b> and <b>Transitions</b> are not constants, are defined by you.</p>
-                </div>
-            </div>
-        </div>
-        <!-- /tiles -->
-
-        <div class="dialog dialog-inverse">
-            <div class="container">
-                <h2>Your domain is the boss here.</h2>
-            </div>
-        </div>
-
-        <div class="demo-row typography-row row" id="shopping-cart-on-the-shoulder-of-the-giants">
-            <h2 class="demo-panel-title">A PHP shopping cart standing on the shoulder of giants
-                <a title="Permalink to this headline" href="#shopping-cart-on-the-shoulder-of-the-giants" class="headerlink">¶</a>
-            </h2>
-
-            <div class="col-md-8">
-                <p>
-                    Leaphly is a PHP application for PHP >=5.3. It relies on the simplicity and power
-                    of the Symfony2 framework and has been inspired also by Spree commerce,
-                    symfony-cmf and by the Symfony2 ecosystem.</p>
-                <p>
-                    This project does only one thing: handles the shopping cart, its states, its items.
-                </p>
-                <p>
-                    The heart of the e-commerce is your domain, which is made ​by the domains of each
-                    of your product that you will sell.
+        <div class="start-row row">
+            <div class="col-md-3 centered">
+                <p id="inthepast">
+                    IN THE PAST <span>WE</span></strong>
                 </p>
             </div>
-            <div class="links_intro col-md-4">
-                <div><a class="btn btn-block btn-lg btn-primary" href="#demo">Play Demo  <span
-                                class="fui-play"></span></a></div>
-
-                <div><a class="btn btn-block btn-lg btn-info" href="{{ path('documentation') }}" target="_blank">Documentation  <span
-                                class="fui-arrow-right"></span></a></div>
-
-                <div><a  data-toggle="modal" href="#myModal" class="btn btn-block btn-lg btn-success" href="#fakelink">Install now  <span
-                                class="fui-check"></span></a></div>
+            <div class="col-md-9">
+                <blockquote class="inthepast">
+                    <p>
+                        have spent too much time re-adapting e-commerce solution to our needs,<br>
+                        have trusted to the "silver bullet" solution that can solve all e-commerce problems,<br>
+                        have spent years fighting the domain of the products instead of giving a proper handler.<br>
+                        have spent too much effort trying to maintain not decoupled long-term projects.<br>
+                    </p>
+                </blockquote>
             </div>
-        </div
-
-                <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <br><br>
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title">Install the sandbox with composer</h4>
-                    </div>
-                    <div class="modal-body">
-                        <pre>php composer.phar -sdev create-project leaphly/leaphly-sandbox leaphly-sandbox/</pre>
-                        <a href="{{ path('documentation') }}book/sandbox.html" target="_blank">More info on documentation/sandbox</a>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Yeah</button>
-
-                    </div>
-                </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-        </div><!-- /.modal -->
-
-        <div class="demo-row typography-row row">
             <div class="col-md-12">
-                <p> A great e-commerce solution should be:</p>
+                <p>
+                    <strong>Leaphly</strong> is composed by a
+                    <a title="Leaphly Shopping Cart" href="https://github.com/leaphly/CartBundle"  target="_blank">Cart Symfony2 Bundle</a> and
+                    a <a title="Leaphly Shopping Cart" href="https://github.com/leaphly/leaphly-sandbox" target="_blank"> working Sandbox application</a>,
+                </p>
+            </div>
+        </div>
 
-                <div class="feature-list checkbox checked">
-                    <span class="second-icon fui-checkbox-checked"></span>
-                    <em>Tailored</em><span class="asphalt"> should not be configured only with an ".ini" file,
-                        it needs to be developed, in order to fit the company needs.</span>
-                </div>
+        <div class="start-row row">
+            <div class="col-md-3">
+                  <div id="feel" class="bs-sidebar ">
+                      <h3>Feel it
+                          <a title="Permalink to this headline" href="#feel" class="headerlink">¶</a>
+                      </h3>
+                      <p>
+                      2 Minutes:
+                      </p>
+                      <ul class="five-min">
+                          <li><a class="btn btn-block btn-lg btn-primary" href="#demo"><span class="fui-play left"></span><b>Play</b> Demo</a></li>
+                      </ul>
 
-                <div class="feature-list checkbox checked">
-                    <span class="second-icon fui-checkbox-checked"></span>
-                    <em>Deep</em><span class="asphalt"> should handle each product with its own logic.</span>
-                </div>
+                      <p>
+                      5 Minutes:
+                      </p>
+                      <ul class="five-min">
+                          <li><a class="btn btn-block btn-lg btn-primary" href="#big-picture"><span class="fui-document left"></span><b>Learn</b> big picture </a></li>
+                          <li><a class="btn btn-block btn-lg btn-primary" href="{{ path('leaphly_content_install_sandbox') }}"><span class="fui-arrow-right left"></span><b>Install</b> the sandbox </a></li>
+                      </ul>
 
-                <div class="feature-list checkbox checked">
-                    <span class="second-icon fui-checkbox-checked"></span>
-                    <em>Decoupled</em><span class="asphalt"> should facilitate and suggest the SOA,
-                        with internal or external service.</span>
-                </div>
-
-                <div class="feature-list checkbox checked">
-                    <span class="second-icon fui-checkbox-checked"></span>
-                    <em>Flexible</em><span class="asphalt"> should leave the architectural choice
-                        to the development team.</span>
-                </div>
+                      <p>
+                      10 Minutes:
+                      </p>
+                      <ul class="five-min">
+                          <li><a class="btn btn-block btn-lg btn-primary" href="{{ path('documentation') }}/book/installation.html" target="_blank">Create <b>your</b> application <span class="fui-heart"></span></a></li>
+                      </ul>
+                  </div>
             </div>
 
-        </div>
+            <div id="features" class="col-md-9">
+                <!-- /.features-row -->
+                <h3>Features
+                    <a title="Permalink to this headline" href="#features" class="headerlink">¶</a>
+                </h3>
+                <div class="row demo-tiles">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tile">
+
+                            <h3 class="tile-title">Multi-product</h3>
+                            {% image '@LeaphlyContentBundle/Resources/public/images/icons/flask.svg'
+                            %}<img src="{{ asset_url }}" alt="Multi-product" class="tile-image"/>
+                            {% endimage %}
+                            <p>
+                                Support infinite products each with its personal domain.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tile">
+
+                            <h3 class="tile-title">Multi-storage</h3>
+                            {% image '@LeaphlyContentBundle/Resources/public/images/icons/fit.svg'
+                            %}<img src="{{ asset_url }}" alt="Multi-storage" class="tile-image"/>
+                            {% endimage %}
+                            <p>
+                                Doctrine2 ODM and ORM.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tile">
+
+                            <h3 class="tile-title">No EAV</h3>
+                            {% image '@LeaphlyContentBundle/Resources/public/images/icons/retina.svg'
+                            %}<img src="{{ asset_url }}" alt="No EAV" class="tile-image"/>
+                            {% endimage %}
+                            <p>
+                                <del>Entity Attr. Value</del>
+                                <br> Object Oriented Programming
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tile">
+
+                            <h3 class="tile-title">RESTful API.</h3>
+                            {% image '@LeaphlyContentBundle/Resources/public/images/icons/chair.svg'
+                            %}<img src="{{ asset_url }}" alt="RESTful API" class="tile-image"/>
+                            {% endimage %}
+
+                            <p>Usable via Http RESTful or via Symfony2 container.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tile">
+                            <h3 class="tile-title">No Session needed.</h3>
+                            {% image '@LeaphlyContentBundle/Resources/public/images/icons/spray.svg'
+                            %}<img src="{{ asset_url }}" alt="No Session needed" class="tile-image"/>
+                            {% endimage %}
+                            <p>Cart is used as a resource.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tile">
+                            {% image '@LeaphlyContentBundle/Resources/public/images/icons/flag.svg'
+                            %}<img src="{{ asset_url }}" alt="States and Transitions" class="tile-image"/>
+                            {% endimage %}
+
+                            <p><b>States</b> and <b>Transitions</b> are not constants, are defined by you.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tile">
+
+                            <h3 class="tile-title">Service Oriented Architecture</h3>
+                            {% image '@LeaphlyContentBundle/Resources/public/images/icons/medal.svg'
+                            %}<img src="{{ asset_url }}" alt="Multi-product" class="tile-image"/>
+                            {% endimage %}
+
+                            <p>
+                                Leaphly cart promotes loose coupling.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <div class="tile">
+
+                            <h3 class="tile-title">Short learning curve</h3>
+                            {% image '@LeaphlyContentBundle/Resources/public/images/icons/brush.svg'
+                            %}<img src="{{ asset_url }}" alt="Multi-product" class="tile-image"/>
+                            {% endimage %}
+                            <p>
+                                Not customizable, you will <b>develop</b> your domain.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- row -->
     </div>
     <!--container-->
 
+    <!-- rendering the bigpicture section -->
+    {% include('LeaphlyContentBundle:Page:shoppingcartontheshoulderofthegiants.html.twig') %}
+
     <!-- rendering the demo -->
     {{ render(controller('SimplePurchaseProcessBundle:Cart:play')) }}
+
+
     <!-- rendering the bigpicture section -->
     {% include('LeaphlyContentBundle:Page:bigpicture.html.twig') %}
-{% endblock %}
 
-{% block sidebar %}
-    <div id="sidebar" role="complementary" class="bs-sidebar affix affix-top well">
-        <div class="centered">
-            {% image '@LeaphlyContentBundle/Resources/public/images/favicons/32_leaphly-logo-white.png'
-            %}<img src="{{ asset_url }}" alt="leaphly symfony2 cart" />
-            {% endimage %}
-        </div>
-        <ul class="nav bs-sidenav">
-            <li><a href="#mission-statement">Mission Statement</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#shopping-cart-on-the-shoulder-of-the-giants">Shopping cart</a></li>
-            <li><a href="#demo">Demo</a></li>
-            <li><a href="#why-leaphly-cart">Why Leaphly?</a></li>
-            <li><a href="#give-a-feedback">Feedback</a></li>
-            <li><a href="{{ path('nelmio_api_doc_index') }}" target="_blank">API doc</a></li>
-            <li><a href="{{ path('documentation') }}" target="_blank">Documentation</a></li>
-        </ul>
-        <div class="centered"><a href="https://twitter.com/leaphly" class="twitter-follow-button" data-show-count="false">Follow @leaphly</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
+
+<section id="hands-on">
+    <div class="container">
+        <div class="demo-row typography-row row" id="why-leaphly-cart">
+            <h2>Hands On
+                <a title="Permalink to this headline" href="#hands-on" class="headerlink">¶</a>
+            </h2>
+            <div class="col-lg-12 " id="hands-on-create-the-cart">
+                <h3>Create the Cart and fetch the Cart
+                    <a title="Permalink to this headline" href="#hands-on-create-the-cart" class="headerlink">¶</a>
+                </h3>
+
+                {% include('LeaphlyContentBundle:Snippets:cartPost.html.twig') %}
+            </div>
+
+            <div class="col-lg-12" id="hands-on-create-the-items">
+                <h3>Add different products and options to the cart
+                    <a title="Permalink to this headline" href="#hands-on-create-the-items" class="headerlink">¶</a>
+                </h3>
+                <p>
+                    Add to cart products with different options, showing the power of multi-products,
+                    usually each product has its own options.
+                </p>
+                {% include('LeaphlyContentBundle:Snippets:cartItemPost.html.twig') %}
+            </div>
+        </div><!-- row -->
     </div>
+</section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <br><br>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Install the sandbox with composer</h4>
+                </div>
+                <div class="modal-body">
+                    <pre>php composer.phar -sdev create-project leaphly/leaphly-sandbox leaphly-sandbox/</pre>
+                    <a href="{{ path('documentation') }}book/sandbox.html" target="_blank">More info on documentation/sandbox</a>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Yeah</button>
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 {% endblock %}

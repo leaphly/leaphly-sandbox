@@ -1,0 +1,144 @@
+{% extends "LeaphlyContentBundle::skeleton.html.twig" %}
+
+{% block title %}{{ content.title }}{% endblock %}
+
+{% block content %}
+    <div class="container" >
+        <div class="demo-row typography-row row" id="#install-sandbox">
+            <h1>Install the Sandbox
+                <a title="Permalink to this headline" href="#install-sandbox" class="headerlink">¶</a>
+            </h1>
+            <div class="col-md-12">
+                <h2>
+                    <a href="#welcome" class="anchor" name="welcome"><span class="octicon octicon-link"></span></a>Welcome</h2>
+
+                <p>Welcome to the Leaphly Sandbox - a fully-functional Symfony2
+                    application that you can use to play with the leaphly concept.</p>
+
+                <p>This document contains information on how to download, install, and start
+                    using Leaphly.</p>
+
+                <h2>
+                    <a href="#1-installing-the-standard-edition" class="anchor" name="1-installing-the-standard-edition"><span class="octicon octicon-link"></span></a>
+                    1) Installing with Composer
+                    <a title="Permalink to this headline" href="#1-installing-the-standard-edition" class="headerlink">¶</a>
+
+                </h2>
+
+                <p>When it comes to installing the Symfony Standard Edition, you have the
+                    following options.</p>
+
+                <p>As Leaphly and Symfony uses <a href="http://getcomposer.org/">Composer</a> to manage its dependencies, the recommended way
+                    to create a new project is to use it.</p>
+
+                <p>If you don't have Composer yet, download it following the instructions on
+                    <a href="http://getcomposer.org/">http://getcomposer.org/</a> or just run the following command:</p>
+
+<pre><code>curl -s http://getcomposer.org/installer | php
+</code></pre>
+
+                <p>Then, use the <code>create-project</code> command to generate a new Leaphly application:</p>
+
+<pre><code>cd /var/www
+php composer.phar create-project leaphly/leaphly-sandbox leaphly-sandbox -sdev
+</code></pre>
+                <p>Be careful for the API request the demo will use the parameters <strong>leaphly_api_host</strong>
+                    and
+                    <strong>leaphly_api_port</strong>, so if you change those during the installation process, remember to change also the virtual host.</p>
+
+
+                <p>Composer will install Symfony and all its dependencies under the
+                    <code>leaphly-sandbox</code> directory.</p>
+
+                <h2>
+                    <a href="#2-checking-your-system-configuration" class="anchor" name="2-checking-your-system-configuration"><span class="octicon octicon-link"></span></a>
+                    2) Checking your System Configuration
+
+                    <a title="Permalink to this headline" href="#2-checking-your-system-configuration" class="headerlink">¶</a>
+                </h2>
+
+                <p>Before starting coding, make sure that your local system is properly
+                    configured for Leaphly and Symfony.</p>
+
+                <p>Execute the <code>check.php</code> script from the command line:</p>
+
+<pre><code>php app/check.php
+</code></pre>
+
+                <h2>
+                    <a href="#3-choose-your-database-driver" class="anchor" name="3-choose-your-database-driver"><span class="octicon octicon-link"></span></a>3) Choose your Database Driver</h2>
+
+                <p>Leaphly permits to use orm and odm for storage</p>
+
+                <h3>
+                    <a href="#a---init-mongodb-odm" class="anchor" name="a---init-mongodb-odm"><span class="octicon octicon-link"></span></a>A) - Init Mongodb ODM</h3>
+
+<pre><code>app/console doctrine:mongodb:schema:create --index
+app/console doctrine:mongodb:fixtures:load
+</code></pre>
+
+                <h3>
+                    <a href="#b---init-orm---unstable-now--try-the-mongo-version-please" class="anchor" name="b---init-orm---unstable-now--try-the-mongo-version-please"><span class="octicon octicon-link"></span></a>B) - Init ORM - UNSTABLE NOW- try the mongo version please.</h3>
+
+<pre><code>git init
+mv app/AppKernel.orm.php.dist app/AppKernel.php
+mv /app/config/leaphly/dbdriver.orm.yml.dist /app/config/leaphly/dbdriver.yml
+app/console doctrine:schema:update --force
+app/console doctrine:fixtures:load
+</code></pre>
+
+                <h2>
+                    <a href="#4-load-fixtures-and-assets" class="anchor" name="4-load-fixtures-and-assets"><span class="octicon octicon-link"></span></a>4) Load fixtures and assets</h2>
+
+<pre><code>app/console fos:js:dump --env=dev
+app/console assets:install web --symlink --env=dev
+app/console assetic:dump --env=dev
+</code></pre>
+
+
+
+                <h2>
+                    <a href="#5-create-the-virtual-host" class="anchor" name="5-create-the-virtual-host"><span class="octicon octicon-link"></span></a>
+                    5) Create the Virtual Host</h2>
+
+                <p>Add the path to your hosts</p>
+                <pre><code>sudo – sh -c "echo 127.0.0.1 cart.local >> /etc/hosts"</code></pre>
+
+                <p>Then create  the virtual host, in your apache sites</p>
+                <div class="highlight-apache"><div class="highlight"><pre><span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
+     <span class="nb">DocumentRoot</span> <span class="sx">/var/www/leaphly-sandbox/web/</span>
+     <span class="nb">ServerName</span> cart.local
+     <span class="nt">&lt;Directory</span>  <span class="s">/var/www/leaphly-sandbox/web/</span><span class="nt">&gt;</span>
+           <span class="nb">Options</span> FollowSymLinks
+           <span class="nb">AllowOverride</span> <span class="k">All</span>
+           <span class="nb">Allow</span> from <span class="k">all</span>
+     <span class="nt">&lt;IfModule</span> <span class="s">mod_rewrite.c</span><span class="nt">&gt;</span>
+       <span class="nb">RewriteEngine</span> <span class="k">On</span>
+       <span class="nb">RewriteCond</span> %{REQUEST_FILENAME} -f
+       <span class="nb">RewriteRule</span> .? - [L]
+       <span class="nb">RewriteRule</span> .? %{ENV:BASE}/app_dev.php [L]
+    <span class="nt">&lt;/IfModule&gt;</span>
+    <span class="nt">&lt;/Directory&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</pre></div>
+                    <h2>
+                        <a href="#3-browsing-the-demo-application" class="anchor" name="3-browsing-the-demo-application"><span class="octicon octicon-link"></span></a>6) Browsing the Demo Application</h2>
+
+                    <p>Congratulations! You're now ready to use leaphly.</p>
+
+                    <p>To see a real-live Leaphly page in action, access the following page:</p>
+
+<pre><code>http://cart.local
+</code></pre>
+
+                    <h2>
+                        <a href="#5-create-the-virtual-host" class="anchor" name="5-create-the-virtual-host"><span class="octicon octicon-link"></span></a>
+                        Run phpunit tests</h2>
+                    <p><pre><code>bin/phpunit -c app;</code></pre></p>
+
+                    <p>Enjoy!</p></article>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

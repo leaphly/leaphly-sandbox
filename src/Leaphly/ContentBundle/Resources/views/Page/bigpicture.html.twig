@@ -1,12 +1,15 @@
-<section class="feature">
+<section id="big-picture">
 <div class="container">
     <div class="demo-row typography-row row" id="why-leaphly-cart">
-        <h3 class="demo-panel-title">Why another e-commerce?
-            <a title="Permalink to this headline" href="#why-leaphly-cart" class="headerlink">¶</a>
-        </h3>
-        <div class="col-lg-12 ">
+        <h2>Big Picture:
+            <a title="Permalink to this headline" href="#big-picture" class="headerlink">¶</a>
+        </h2>
+        <div class="col-lg-12" id="why-leaphly">
+            <h3>Why another e-commerce?
+                <a title="Permalink to this headline" href="#why-leaphly" class="headerlink">¶</a>
+            </h3>
             <p>
-                Actually we consider this project to be only a little part of an e-commerce architecture,
+                Actually we consider this project to be only a part of an e-commerce architecture,
                 we are providing tool to build a <b>custom shopping-cart</b>.
             </p>
 
@@ -19,12 +22,13 @@
                 in contrast to what is possible with
                 <a href="http://www.symfony.com" target="_blank">Symfony2</a>.
             </p>
+        </div>
 
-            <h4>Developer Developer Developer Decouple Decouple Decouple</h4>
-            {% image '@LeaphlyContentBundle/Resources/public/images/leaphly-soa-square.jpg'
-            %}<img src="{{ asset_url }}" alt="SOA" class="right"/>
-            {% endimage %}
-
+        <div class="col-md-12" id="the-perfect-ecommerce">
+            <h3>
+               The Perfect e-commerce
+                <a class="headerlink" href="#the-perfect-ecommerce" title="Permalink to this headline">¶</a>
+            </h3>
             <p>
                 Selecting the right e-commerce application
                 for the long term can be a difficult exercise, It’s not
@@ -32,7 +36,40 @@
                 needs that have not yet even hit the planning
                 stages.
             </p>
+            <h5>A great e-commerce solution should be:</h5>
+            <div class="commerce-list checkbox checked">
+                <span class="second-icon fui-checkbox-checked"></span>
+                <em>Tailored</em><span class="asphalt"> should not be configured only with an ".ini" file,
+                                it needs to be developed, in order to fit the company needs.</span>
+            </div>
 
+            <div class="commerce-list checkbox checked">
+                <span class="second-icon fui-checkbox-checked"></span>
+                <em>Deep</em><span class="asphalt"> should handle each product with its own logic.</span>
+            </div>
+
+            <div class="commerce-list checkbox checked">
+                <span class="second-icon fui-checkbox-checked"></span>
+                <em>Decoupled</em><span class="asphalt"> should facilitate and suggest the SOA,
+                                with internal or external service.</span>
+            </div>
+
+            <div class="commerce-list  checkbox checked">
+                <span class="second-icon fui-checkbox-checked"></span>
+                <em>Flexible</em><span class="asphalt"> should leave the architectural choice
+                                to the development team.</span>
+            </div>
+        </div>
+
+        <div class="col-md-12" id="decouple-decouple-decouple">
+            <h3>
+                Developer Developer Developer Decouple Decouple Decouple
+                <a class="headerlink" href="#decouple-decouple-decouple" title="Permalink to this headline">¶</a>
+            </h3>
+
+            {% image '@LeaphlyContentBundle/Resources/public/images/leaphly-soa-square.jpg'
+            %}<img src="{{ asset_url }}" alt="SOA" class="right"/>
+            {% endimage %}
             <p>
                 The same principles for the object oriented design, could also be extended to services,
                 using Service Oriented Architecture, <b>build application out of smaller ones</b>.
@@ -47,10 +84,70 @@
                 the report and the order stats by the Business Intelligence or just a simple report application,
                 the carts by <b>Leaphly</b> as bundle or as Cart Service via Restful interface.
             </p>
-
         </div>
-        <div class="col-lg-12 ">
-            <h4>Strategy Pattern</h4>
+
+
+        <div class="col-lg-12" id="what-is-our-target-audience">
+
+            <h3>What is our target audience?
+                <a class="headerlink" href="#what-is-our-target-audience" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>
+                There are basically few main target audiences:
+            </p>
+            <ol>
+                <li><strong>[Symfony application]</strong><br>
+                    Developers who have built an existing custom application with Symfony2 and need an high quality
+                    way to add support for cart.
+                </li>
+                <li><strong>[Decoupled Architecture]</strong><br>
+                    Developers that during the creation of their e-commerce think the Service Oriented Application, is perfect for them.
+                </li>
+                <li><strong>[Improve Legacy]</strong><br>
+                    Developers who already have an e-commerce and would like to replace only the shopping cart.
+                </li>
+            </ol>
+            <p>
+                Be it sophisticated Cart features like multi-product, rest provider, api for cart finite state,
+                or just a single product like a mug shop.
+            </p>
+        </div>
+
+        <div class="col-lg-12" id="understanding-the-fundamentals">
+
+            <h3>Understanding the Fundamentals
+                <a class="headerlink" href="#understanding-the-fundamentals" title="Permalink to this headline">¶</a>
+            </h3>
+            <p>
+                In this project, the concept of `domain` is very used,  a definition is needed.
+            </p>
+            <p>
+                definition:
+            </p>
+
+            <p><strong>Domain:</strong></p>
+            <blockquote>
+                <p>
+                    A sphere of knowledge, influence, or activity.
+                </p>
+            </blockquote>
+            <p>
+                In this project you could think about a specific set of needs,
+                for example given two companies that sell t-shirts, both of which have a specific and different domain.<br>
+
+                The domain changes and evolves with the business of the company.
+            </p>
+            <p>
+                Talking about e-commerce, each company could sell different products and each product could have a totally
+                different domain.
+            </p>
+        </div>
+
+
+        <div class="col-lg-12" id="strategy-pattern">
+            <h3>Strategy Pattern
+                <a class="headerlink" href="#strategy-pattern" title="Permalink to this headline">¶</a>
+            </h3>
             <p>
                 The e-commerce usually requires a product that conforms to different types of interfaces to make
                 possible its manipulation by different processes such as the selection of the options or the
@@ -86,9 +183,15 @@
                 "Design Patterns" by Gamma et al. that popularized the concept
                 of using patterns in software design.
             </blockquote>
+            <p class="well well-md">Strategy pattern elegantly solve the domain differences of the products, selecting
+                the correct product handler given a context.
+            </p>
         </div>
-        <div class="col-lg-12 ">
-            <h4 class="">Finite state machine and transitions</h4>
+        <div class="col-lg-12" id="finite-state-machine">
+            <h3>
+                Finite state machine and transitions
+                <a class="headerlink" href="#finite-state-machine" title="Permalink to this headline">¶</a>
+            </h3>
             <p>
                 The Cart lifecycle is very important for an e-commerce project.
             </p>
@@ -106,6 +209,11 @@
                 the states and transitions via a configuration file, it allows to have
                 a single point where stores the logic that defines the permissions.
             </p>
+
+            <p class="well well-md">An example of working finite states configuration is visible here
+                <a href="https://github.com/leaphly/leaphly-sandbox/blob/master/app/config/leaphly/finite_state.yml" target="_blank">finite_state.yml</a>
+            </p>
+
             <p>
                 For example, before the payment you want to understand if the shopping-cart
                 could move to the state of order,<br> then you want to understand
@@ -133,11 +241,11 @@
                     </div>
                     <div class="tab-pane fade" id="code-transition-rest">
 <pre><code>$client = new Guzzle\Http\Client();
-        $request = $client->post(
-        sprintf('http://leaphly.org/api/v1/carts/%s/transitions/order_start.json',  $cartId)
-        );
-        $request->setAuth('consumer', 'consumer');
-        $response = $request->send();</code></pre>
+$request = $client->post(
+sprintf('http://leaphly.org/api/v1/carts/%s/transitions/order_start.json',  $cartId)
+);
+$request->setAuth('consumer', 'consumer');
+$response = $request->send();</code></pre>
                     </div>
                 </div>
             </div>
@@ -154,21 +262,8 @@
                 <a href="https://github.com/yohang/Finite">yohang/Finite</a> as FSM.
             </p>
         </div>
-
-        <div class="col-lg-12 ">
-            <h5>Create the Cart and fetch the Cart</h5>
-
-            {% include('LeaphlyContentBundle:Snippets:cartPost.html.twig') %}
-        </div>
-
-        <div class="col-lg-12 ">
-            <h5>Add different products and options to the cart</h5>
-            <p>
-                Add to cart products with different options, showing the power of multi-products,
-                usually each product has its own options.
-            </p>
-            {% include('LeaphlyContentBundle:Snippets:cartItemPost.html.twig') %}
-        </div>
     </div>
 </div>
 </section>
+
+
