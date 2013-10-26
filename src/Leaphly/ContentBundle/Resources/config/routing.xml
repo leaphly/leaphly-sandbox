@@ -7,4 +7,7 @@
     <route id="leaphly_content_homepage" pattern="/">
         <default key="_controller">LeaphlyContentBundle:Page:home</default>
     </route>
+    <route id="leaphly_content_install_sandbox" pattern="/install-the-sandbox">
+        <default key="_controller">LeaphlyContentBundle:Page:installSandbox</default>
+    </route>
 </routes>
