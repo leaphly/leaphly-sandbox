@@ -73,33 +73,30 @@ php composer.phar create-project leaphly/leaphly-sandbox leaphly-sandbox -sdev
                 <h3>
                     <a href="#a---init-mongodb-odm" class="anchor" name="a---init-mongodb-odm"><span class="octicon octicon-link"></span></a>A) - Init Mongodb ODM</h3>
 
-<pre><code>app/console doctrine:mongodb:schema:create --index
-app/console doctrine:mongodb:fixtures:load
+<pre><code>app/console doctrine:mongodb:schema:create --index --env=dev
+app/console doctrine:mongodb:fixtures:load --env=dev
+echo "Loading fixtures and assets..."
+app/console fos:js:dump --env=dev
+app/console assets:install web --symlink --env=dev
+app/console assetic:dump --env=dev
 </code></pre>
 
                 <h3>
                     <a href="#b---init-orm---unstable-now--try-the-mongo-version-please" class="anchor" name="b---init-orm---unstable-now--try-the-mongo-version-please"><span class="octicon octicon-link"></span></a>B) - Init ORM - UNSTABLE NOW- try the mongo version please.</h3>
 
-<pre><code>git init
-mv app/AppKernel.orm.php.dist app/AppKernel.php
-mv /app/config/leaphly/dbdriver.orm.yml.dist /app/config/leaphly/dbdriver.yml
-app/console doctrine:schema:update --force
-app/console doctrine:fixtures:load
+<pre><code>app/console doctrine:database:create --env=orm_dev
+app/console doctrine:schema:update --force --env=orm_dev
+app/console doctrine:fixtures:load --env=orm_dev
+echo "Loading fixtures and assets..."
+app/console fos:js:dump --env=orm_dev
+app/console assets:install web --symlink --env=orm_dev
+app/console assetic:dump --env=orm_dev
 </code></pre>
-
-                <h2>
-                    <a href="#4-load-fixtures-and-assets" class="anchor" name="4-load-fixtures-and-assets"><span class="octicon octicon-link"></span></a>4) Load fixtures and assets</h2>
-
-<pre><code>app/console fos:js:dump --env=dev
-app/console assets:install web --symlink --env=dev
-app/console assetic:dump --env=dev
-</code></pre>
-
 
 
                 <h2>
                     <a href="#5-create-the-virtual-host" class="anchor" name="5-create-the-virtual-host"><span class="octicon octicon-link"></span></a>
-                    5) Create the Virtual Host</h2>
+                    4) Create the Virtual Host</h2>
 
                 <p>Add the path to your hosts</p>
                 <pre><code>sudo – sh -c "echo 127.0.0.1 cart.local >> /etc/hosts"</code></pre>
@@ -122,7 +119,7 @@ app/console assetic:dump --env=dev
 <span class="nt">&lt;/VirtualHost&gt;</span>
 </pre></div>
                     <h2>
-                        <a href="#3-browsing-the-demo-application" class="anchor" name="3-browsing-the-demo-application"><span class="octicon octicon-link"></span></a>6) Browsing the Demo Application</h2>
+                        <a href="#3-browsing-the-demo-application" class="anchor" name="3-browsing-the-demo-application"><span class="octicon octicon-link"></span></a>5) Browsing the Demo Application</h2>
 
                     <p>Congratulations! You're now ready to use leaphly.</p>
 

@@ -1,6 +1,5 @@
 imports:
     - { resource: finite_state.yml }
-    - { resource: dbdriver.yml }
     - { resource: rest.yml } # you could omit this if you don't want rest functionality
 
 simple_purchase_process:

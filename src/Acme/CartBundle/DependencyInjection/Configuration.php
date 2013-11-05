@@ -4,6 +4,8 @@ namespace Acme\CartBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
+use Leaphly\CartBundle\DependencyInjection\Configuration as CartConfiguration;
 
 /**
  * This is the class that validates and merges configuration from your app/config files
@@ -18,8 +20,26 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $treeBuilder->root('acme_cart');
+        $nodes =$treeBuilder->root('acme_cart');
+
+        $this->addDbDriver($nodes);
 
         return $treeBuilder;
+    }
+
+    private function addDbDriver(ArrayNodeDefinition $node)
+    {
+        $node
+            ->children()
+            ->scalarNode('db_driver')
+                ->validate()
+                    ->ifNotInArray(CartConfiguration::$supportedDrivers)
+                    ->thenInvalid('The driver %s is not supported. Please choose one of '.json_encode(CartConfiguration::$supportedDrivers))
+                ->end()
+                ->cannotBeOverwritten()
+                ->defaultValue('mongodb')
+                ->cannotBeEmpty()
+                ->end()
+            ->end();
     }
 }

@@ -25,3 +25,12 @@ leaphly_cart:
             form: acme_cart.cart.form.type
         limited:
             form: acme_cart.cart.limited.form.type
+
+acme_tshirt:
+    db_driver: orm
+
+acme_conference:
+    db_driver: orm
+
+acme_cart:
+    db_driver: orm

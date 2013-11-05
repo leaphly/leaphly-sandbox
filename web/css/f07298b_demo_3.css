@@ -10,6 +10,53 @@ p {
 .clearfix {
     *zoom: 1;
 }
+h1 {
+    font-size:43px;
+}
+
+h1, h2 {
+    font: bold 36px/40px;
+    margin: 2px 0 20px;
+    padding-top: 20px;
+    font-size:40px;
+}
+
+h3.tile-title {
+    color: #34495E;
+    margin: 0;
+    padding: 4px;
+}
+
+h3, h4, h5 {
+    color: rgba(52, 73, 94, 0.55);
+    font-family: Georgia,"Times New Roman",Times,serif;
+    font-size: 30px;
+    padding: 15px 0 15px;
+}
+
+h4 {
+    font-size: 25px;
+}
+
+h5 {
+    font-size: 22px;
+}
+.cart-head h5 {
+    color: #ffffff;
+}
+
+#inthepast{
+    font-weight: bold;
+    margin: 38px;
+}
+
+#inthepast span{
+    font-weight: bolder;
+}
+
+.dialog h2 {
+    font-size: 35px;
+}
 .bs-sidebar .nav > li > a {
 
     display: block;
@@ -21,12 +68,50 @@ p {
     padding-bottom: 5px;
 }
 
+blockquote.inthepast {
+    margin-left: -15px;
+}
+
+blockquote:before {
+    background: none;
+}
+
 blockquote {
     font-size: 22px;
     font-weight: 100;
     line-height: 34px;
+    border-left: 1px solid #34495E;
 }
 
+blockquote p{
+    line-height: 1.6;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+#feel p {
+   font-weight: bold;
+   padding-top: 11px;
+}
+
+ol {
+    font-size:20px;
+}
+
+ol li {
+    padding-top: 10px;
+}
+
+
+ul.five-min li a.btn span.left
+{
+    float:left;
+}
+
+ul.five-min li{
+    margin-top: 5px;
+    list-style: none;
+}
 
 #sidebar {
     font-size: 12px;
@@ -65,6 +150,7 @@ blockquote {
 
 h4, h5 {
     padding-top: 10px;
+    padding-bottom: 5px;
 }
 .nav-tabs {
     margin-bottom: 5px;
@@ -98,7 +184,6 @@ section.demo {
     background: linear-gradient(0deg, rgba(52, 152, 219, 0.2), rgba(26, 188, 156, 0.1) 98%) repeat scroll 0 0%, url("../../bundles/leaphlycontent/images/dimension.png") repeat fixed 0 0%, none repeat fixed 0 0 transparent;
 }
 
-
 .demo-headline {
     text-align: center;
 }
@@ -108,14 +193,16 @@ section.demo {
     margin: 10px 0;
     color: #1ABC9C;
 }
-.demo-logo .logo {
-    background: url("../../bundles/leaphlycontent/images/leaphly-logo.png") no-repeat scroll center 0 / 236px 261px rgba(0, 0, 0, 0);
-    height: 261px;
+.logo {
+    background: url("../../bundles/leaphlycontent/images/leaphly-logo.png") no-repeat scroll center 0 / 175px 185px rgba(0, 0, 0, 0);
+    height: 200px;
     margin: 0 auto 2px;
     overflow: hidden;
     text-indent: -9999em;
-    width: 261px;
+    width: 199px;
 }
+
+
 .demo-logo small {
     color: rgba(52, 73, 94, 0.30000000000000004);
     display: block;
@@ -171,6 +258,10 @@ section.demo {
 .links_intro div {
     margin: 10px 0 5px;
 }
+
+.commerce-list {
+    padding-bottom: 5px;
+}
 .demo-panel-title small {
     color: #798795;
     font-size: inherit;
@@ -197,6 +288,7 @@ section.demo {
 .demo-tiles {
     margin-top: 20px;
     margin-bottom: 30px;
+    border-left: 1px solid;
 }
 .demo-icons {
     font-size: 32px;
@@ -377,12 +469,12 @@ pre code {
     padding: 10px 0 13px;
 }
 .tile {
-    background-color: #EFF0F2;
+    border: 1px solid #EFF0F2;
     border-radius: 6px 6px 6px 6px;
-    height: 220px;
-    padding: 14px;
+    height: 190px;
     position: relative;
     text-align: center;
+    margin:5px;
 }
 .tile.tile-hot:before {
     background: no-repeat scroll 0 0 / 82px 82px rgba(0, 0, 0, 0);
@@ -399,8 +491,9 @@ pre code {
 }
 .tile-image {
     height: 50px;
-    margin: 15px 0 16px;
+    margin-top: 5px;
     vertical-align: bottom;
+
 }
 .tile-image.big-illustration {
     height: 111px;
@@ -409,7 +502,7 @@ pre code {
 }
 .tile-title {
     font-size: 20px;
-    margin: 0;
+    margin: 10px 0 5px;
 }
 
 .purchase-process {
@@ -501,6 +594,11 @@ div.login-form form div div label {
     text-align: center;
 }
 
+.tweets-loader {
+    padding: 5px;
+    margin-top: 25px;
+}
+
 #footer-banner-green {
     background-color: #1ABC9C;
     color: #D1F2EB;
@@ -521,7 +619,7 @@ div.login-form form div div label {
 }
 
 footer {
-    background-color: #EDEFF1;
+    background-color: #1ABC9C;
     color: #BAC1C8;
     font-size: 15px;
     padding: 0;

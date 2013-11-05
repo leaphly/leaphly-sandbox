@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\CartBundle\Tests\Fixture\Entity;
+namespace Acme\TestBundle\Fixture\Entity;
 
 use Acme\CartBundle\Tests\Fixture\FixtureCollector;
 use Doctrine\Common\DataFixtures\FixtureInterface;

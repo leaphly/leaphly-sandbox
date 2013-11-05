@@ -6,14 +6,13 @@
 
     <parameters>
         <parameter key="acme_tshirt.item_handler.class">Acme\Product\TshirtBundle\Handler\ItemHandler</parameter>
-        <parameter key="acme_tshirt.item.class">Acme\Product\TshirtBundle\Document\TshirtItem</parameter>
         <parameter key="acme_tshirt.item.form_type.limited.class">Acme\Product\TshirtBundle\Form\TshirtItemType</parameter>
         <parameter key="acme_tshirt.item.form_type.full.class">Acme\Product\TshirtBundle\Form\TshirtItemFullAccessType</parameter>
+        <parameter key="acme_tshirt.item.class">Acme\Product\TshirtBundle\Document\TshirtItem</parameter>
         <parameter key="acme_tshirt.product.class">Acme\Product\TshirtBundle\Document\TshirtProduct</parameter>
     </parameters>
 
     <services>
-
         <service id="acme_tshirt.cart_item.handler_limited" class="%acme_tshirt.item_handler.class%">
             <argument type="service" id="doctrine_mongodb.odm.document_manager" />
             <argument type="service" id="form.factory"/>
@@ -21,8 +20,6 @@
             <argument>%acme_tshirt.item.form_type.limited.class%</argument>
             <tag name="godfather.strategy" instance='limited' context_name="item_handler" context_key="TshirtProduct" />
         </service>
-
-
 
         <service id="acme_tshirt.cart_item.handler_full" class="%acme_tshirt.item_handler.class%">
             <argument type="service" id="doctrine_mongodb.odm.document_manager" />

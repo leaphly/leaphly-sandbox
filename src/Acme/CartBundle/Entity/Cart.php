@@ -1,8 +1,9 @@
 <?php
 namespace Acme\CartBundle\Entity;
 
-use Leaphly\CartBundle\Model\Cart as BaseCart;
 use Doctrine\ORM\Mapping as ORM;
+use \Doctrine\Common\Collections\ArrayCollection;
+use Leaphly\CartBundle\Model\Cart as BaseCart;
 
 /**
  * @ORM\Entity
@@ -10,14 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Cart extends BaseCart
 {
-
-    /**
-     * @ORM\Id
-     * @ORM\Column(type="integer")
-     * @ORM\GeneratedValue(strategy="AUTO")
-     */
-    protected $id;
-
     /**
      * @ORM\ManyToMany(targetEntity="Item", cascade={"all"})
      * @ORM\JoinTable(name="cart_items",
@@ -28,13 +21,13 @@ class Cart extends BaseCart
     protected $items;
 
     /**
-     * @ORM\Column(type="string", name="customer")
+     * @ORM\Column(type="string", name="customer", nullable=true)
      */
     protected $customer;
 
     public function __construct()
     {
-        $this->items = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->items = new ArrayCollection();
         $this->currency = 'EUR';
     }
 
