@@ -12,22 +12,21 @@ use Leaphly\CartBundle\Handler\ItemHandler as BaseItemHandler;
 
 class ItemHandler extends BaseItemHandler implements ItemHandlerInterface
 {
-    protected $formFactory;
-    protected $objectManager;
-    protected $itemClass;
-    protected $itemFormTypeClass;
+   protected $productClass;
 
     public function __construct(
         ObjectManager $objectManager,
         FormFactoryInterface $formFactory,
         $itemClass,
-        $itemFormTypeClass
+        $itemFormTypeClass,
+        $productClass
     )
     {
         $this->objectManager = $objectManager;
         $this->itemClass = $itemClass;
         $this->formFactory = $formFactory;
         $this->itemFormTypeClass = $itemFormTypeClass;
+        $this->productClass = $productClass;
     }
 
     /**

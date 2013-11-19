@@ -269,7 +269,7 @@ class CartsControllerTest extends WebTestCase
     public function provideInvalidJsonCarts()
     {
         return array(
-            'mongo_test invalid date'       => array(
+           /* 'mongo_test invalid date'       => array(
                 'env' => 'test',
                 'fixture' => array('Acme\TestBundle\Tests\Fixture\Document\LoadCartData'),
                 'registry_name' => 'doctrine_mongodb',
@@ -287,7 +287,7 @@ class CartsControllerTest extends WebTestCase
                 'fixture' => array('Acme\TestBundle\Tests\Fixture\Document\LoadCartData'),
                 'registry_name' => 'doctrine_mongodb',
                 'cart' => '{"id":"5226fd34f874e6d91a8b4567","identifier": "1","expiresAt":"2013-09-05T11:28:20+0200","createdAt":"2013-09-03T11:28:20+0200","updatedAt":"2013-09-04T11:28:20+0200","items":[{"id":"5226fd34f874e6d91a8b4568","name":"Shoes"},{"id":"5226fd34f874e6d91a8b4569","name":"Tshirt"}],"currency":"99","state":100}'
-            ),/*
+            ),*/
             'orm_test invalid date'         => array(
                 'env' => 'orm_test',
                 'fixture' => array('Acme\TestBundle\Tests\Fixture\Entity\LoadCartData'),
@@ -305,7 +305,7 @@ class CartsControllerTest extends WebTestCase
                 'fixture' => array('Acme\TestBundle\Tests\Fixture\Entity\LoadCartData'),
                 'registry_name' => 'doctrine',
                 'cart' => '{"identifier": "1","expiresAt":"2013-09-05T11:28:20+0200","createdAt":"2013-09-03T11:28:20+0200","updatedAt":"2013-09-04T11:28:20+0200","items":[{"name":"Shoes"},{"name":"Tshirt"}],"currency":"99","state":open}'
-            ),*/
+            ),
         );
     }
 

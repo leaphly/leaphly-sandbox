@@ -4,7 +4,6 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
-
     <parameters>
         <parameter key="acme_conference.item_handler.class">Acme\Product\ConferenceBundle\Handler\ItemHandler</parameter>
         <parameter key="acme_conference.item.class">Acme\Product\ConferenceBundle\Entity\TicketItem</parameter>
@@ -19,6 +18,7 @@
             <argument type="service" id="form.factory"/>
             <argument>%acme_conference.item.class%</argument>
             <argument>%acme_conference.item.form_type.limited.class%</argument>
+            <argument>%acme_tshirt.product.class%</argument>
             <tag name="godfather.strategy" instance='limited' context_name="item_handler" context_key="TicketProduct" />
         </service>
 
@@ -27,6 +27,7 @@
             <argument type="service" id="form.factory"/>
             <argument>%acme_conference.item.class%</argument>
             <argument>%acme_conference.item.form_type.full.class%</argument>
+            <argument>%acme_tshirt.product.class%</argument>
             <tag name="godfather.strategy" instance='full' context_name="item_handler" context_key="TicketProduct" />
         </service>
     </services>

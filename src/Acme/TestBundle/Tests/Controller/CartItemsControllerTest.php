@@ -2,6 +2,7 @@
 namespace Acme\TestBundle\Tests\Controller;
 
 use Acme\TestBundle\Fixture\FixtureCollector;
+
 use Acme\TestBundle\Tests\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\BrowserKit\Cookie;
@@ -18,8 +19,8 @@ class CartItemsControllerTest extends WebTestCase
         $this->environment = $env;
         $client = static::createClient(array('environment' => $this->environment));
         $this->loadFixtures($fixture, null, $registryName);
-        /** @var \Acme\CartBundle\Entity\Cart $cart */
         $cart = FixtureCollector::getCarts($registryName);
+        /** @var \Acme\CartBundle\Entity\Cart $cart */
         $cart = array_pop($cart);
 
         $item = $cart->getItems();
@@ -81,6 +82,7 @@ class CartItemsControllerTest extends WebTestCase
             'sku' => 'S',
             'quantity' => 2
         );
+
         $serializer = $this->getContainer()->get('jms_serializer');
         $data = $serializer->serialize($request, 'json');
 
