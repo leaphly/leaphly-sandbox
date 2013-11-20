@@ -72,13 +72,13 @@ class WebTestCase extends BaseWebTestCase
                     'Acme\CartBundle\Tests\Fixture\Document\LoadProductData'),
                 'registry_name' => 'doctrine_mongodb'
             ),
-            /*array(
+            array(
                'env' => 'orm_test',
                'fixture' => array(
                    'Acme\CartBundle\Tests\Fixture\Entity\LoadCartData',
                    'Acme\CartBundle\Tests\Fixture\Entity\LoadProductData'),
                'registry_name' => 'doctrine'
-           ),*/
+           ),
         );
     }
 

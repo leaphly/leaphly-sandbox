@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\DependencyInjection\Loader;
+use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 
 /**
  * This is the class that loads and manages your bundle configuration
@@ -20,20 +21,15 @@ class AcmeConferenceExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();
-        $this->processConfiguration($configuration, $configs);
+        $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $this->loadDbDriver($config, $container, $loader);
+    }
 
-        if ($container->hasParameter('leaphly_cart.backend_type_orm')
-            && $container->getParameter('leaphly_cart.backend_type_orm')
-        ) {
-            $loader->load('orm.xml');
-        } else if ($container->hasParameter('leaphly_cart.backend_type_mongodb')
-            && $container->getParameter('leaphly_cart.backend_type_mongodb')
-        ) {
-            $loader->load('mongodb.xml');
-        } else {
-            throw new \Exception('impossible to identify backend type at:'. __CLASS__);
-        }
+
+    private function loadDbDriver($config, ContainerBuilder $container, XmlFileLoader $loader)
+    {
+        $loader->load(sprintf('%s.xml', $config['db_driver']));
     }
 }

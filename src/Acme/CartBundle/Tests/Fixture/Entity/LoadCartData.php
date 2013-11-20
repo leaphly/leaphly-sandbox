@@ -9,7 +9,6 @@ use Acme\CartBundle\Entity\Cart;
 use Acme\Product\ConferenceBundle\Entity\TicketItem;
 use Acme\Product\TshirtBundle\Entity\TshirtItem;
 
-
 class LoadCartData implements FixtureInterface
 {
     public function load(ObjectManager $manager)

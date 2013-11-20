@@ -16,18 +16,21 @@ class ItemHandler extends BaseItemHandler implements ItemHandlerInterface
     protected $objectManager;
     protected $itemClass;
     protected $itemFormTypeClass;
+    protected $productClass;
 
     public function __construct(
         ObjectManager $objectManager,
         FormFactoryInterface $formFactory,
         $itemClass,
-        $itemFormTypeClass
+        $itemFormTypeClass,
+        $productClass
     )
     {
         $this->objectManager = $objectManager;
         $this->itemClass = $itemClass;
         $this->formFactory = $formFactory;
         $this->itemFormTypeClass = $itemFormTypeClass;
+        $this->productClass = $productClass;
     }
 
 
@@ -82,7 +85,7 @@ class ItemHandler extends BaseItemHandler implements ItemHandlerInterface
      */
     protected  function findProduct(array $parameters)
     {
-        $productRepository = $this->objectManager->getRepository('\Acme\CartBundle\Document\Product');
+        $productRepository = $this->objectManager->getRepository($this->productClass);
 
         if(!isset($parameters[ProductFamilyProviderInterface::PRODUCT_ID_PARAMETER])) {
             throw new \Exception("Product not found");

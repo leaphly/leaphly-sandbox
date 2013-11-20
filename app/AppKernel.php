@@ -31,15 +31,22 @@ class AppKernel extends Kernel
             // website
             new Acme\SimplePurchaseProcessBundle\SimplePurchaseProcessBundle(),
             new Leaphly\ContentBundle\LeaphlyContentBundle(),
-            // mongo
-            new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
         );
-        if (in_array($this->getEnvironment(), array('dev', 'test'))) {
+        // if is mongo or orm load modules
+        if (in_array($this->getEnvironment(), array('dev', 'test', 'prod'))) {
+            $bundles[] = new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle();
+        } else if (in_array($this->getEnvironment(), array('orm_dev', 'orm_test', 'orm_prod'))) {
+            $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
+            $bundles[] = new Doctrine\Bundle\DoctrineBundle\DoctrineBundle();
+        }
+
+        if (in_array($this->getEnvironment(), array('dev', 'test', 'orm_dev', 'orm_test'))) {
             $bundles[] = new Liip\FunctionalTestBundle\LiipFunctionalTestBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
         }
+
         return $bundles;
     }
 

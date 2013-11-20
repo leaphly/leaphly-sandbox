@@ -5,4 +5,8 @@
     xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd">
     <import resource="@SimplePurchaseProcessBundle/Resources/config/routing/service_routing.xml" />
     <import resource="@SimplePurchaseProcessBundle/Resources/config/routing/rest_routing.xml" prefix="/rest" />
+
+    <route id="ABC" pattern="/a">
+        <default key="_controller">SimplePurchaseProcessBundle:Cart:play</default>
+    </route>
 </routes>

@@ -23,7 +23,6 @@ application that you can use to play with the leaphly concept.
 
 See the [Install the sandbox][1] chapter of the website.
 
-
 Enjoy!
 
 [1]:  http://leaphly.org/install-the-sandbox/

@@ -2,9 +2,9 @@
 
 namespace Acme\CartBundle\Tests\Fixture\Document;
 
-use Acme\CartBundle\Tests\Fixture\FixtureCollector;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Acme\CartBundle\Tests\Fixture\FixtureCollector;
 use Acme\Product\ConferenceBundle\Document\TicketItem;
 use Acme\Product\TshirtBundle\Document\TshirtItem;
 use Acme\CartBundle\Document\Cart;
