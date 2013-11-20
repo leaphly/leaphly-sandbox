@@ -12,7 +12,7 @@
         <parameter key="acme_conference.product.class">Acme\Product\ConferenceBundle\Document\TicketProduct</parameter>
     </parameters>
 
-    <services>git
+    <services>
         <service id="acme_conference.cart_item.handler_limited" class="%acme_conference.item_handler.class%">
             <argument type="service" id="doctrine_mongodb.odm.document_manager" />
             <argument type="service" id="form.factory"/>

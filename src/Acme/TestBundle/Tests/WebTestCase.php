@@ -65,13 +65,13 @@ class WebTestCase extends BaseWebTestCase
     public function multiEnvProvider()
     {
         return array(
-//            array(
-//                'env' => 'test',
-//                'fixture' => array(
-//                    'Acme\TestBundle\Fixture\Document\LoadCartData',
-//                    'Acme\TestBundle\Fixture\Document\LoadProductData'),
-//                'registry_name' => 'doctrine_mongodb'
-//            ),
+            array(
+                'env' => 'test',
+                'fixture' => array(
+                    'Acme\TestBundle\Fixture\Document\LoadCartData',
+                    'Acme\TestBundle\Fixture\Document\LoadProductData'),
+                'registry_name' => 'doctrine_mongodb'
+            ),
             array(
                'env' => 'orm_test',
                'fixture' => array(

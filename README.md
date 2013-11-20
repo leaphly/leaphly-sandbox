@@ -21,7 +21,7 @@ There is a lot to do: [@leaphly](http://twitter.com/leaphly).
 Welcome to the Leaphly Sandbox - a fully-functional Symfony2
 application that you can use to play with the leaphly concept.
 
-See the [Install the sandbox][1] chapter of the website.app/console server:run --env=orm_prod --router="@FrameworkBundle/Resources/config/router.php"
+See the [Install the sandbox][1] chapter of the website.
 
 Enjoy!
 
