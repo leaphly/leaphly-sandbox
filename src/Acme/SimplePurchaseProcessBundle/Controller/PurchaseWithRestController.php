@@ -4,7 +4,7 @@ namespace Acme\SimplePurchaseProcessBundle\Controller;
 
 use Acme\SimplePurchaseProcessBundle\Type\CreditCardType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Leaphly\CartBundle\Transition\TransitionInterface;
+use Leaphly\Cart\Transition\TransitionInterface;
 use Guzzle\Http\Client as HTTPClient;
 use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
 

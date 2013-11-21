@@ -2,7 +2,7 @@
 
 namespace Acme\CartBundle\Form\Type;
 
-use Leaphly\CartBundle\Form\Type\LimitedCartFormType as BaseCartFormType;
+use Leaphly\Cart\Form\Type\LimitedCartFormType as BaseCartFormType;
 use Symfony\Component\Form\FormBuilderInterface;
 /**
  *

@@ -1,7 +1,7 @@
 <?php
 namespace Acme\CartBundle\Entity;
 
-use Leaphly\CartBundle\Model\Item as BaseItem;
+use Leaphly\Cart\Model\Item as BaseItem;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

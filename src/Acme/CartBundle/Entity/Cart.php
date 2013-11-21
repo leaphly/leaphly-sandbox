@@ -2,8 +2,8 @@
 namespace Acme\CartBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use \Doctrine\Common\Collections\ArrayCollection;
-use Leaphly\CartBundle\Model\Cart as BaseCart;
+use Doctrine\Common\Collections\ArrayCollection;
+use Leaphly\Cart\Model\Cart as BaseCart;
 
 /**
  * @ORM\Entity

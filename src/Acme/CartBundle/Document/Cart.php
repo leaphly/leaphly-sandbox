@@ -3,9 +3,8 @@
 namespace Acme\CartBundle\Document;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Leaphly\CartBundle\Model\Cart as BaseCart;
+use Leaphly\Cart\Model\Cart as BaseCart;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
-use Leaphly\CartBundle\Model\ItemInterface;
 use JMS\Serializer\Annotation\ExclusionPolicy;
 use JMS\Serializer\Annotation\Groups;
 use JMS\Serializer\Annotation\Accessor;
