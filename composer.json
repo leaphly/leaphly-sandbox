@@ -24,7 +24,7 @@
 
         "jms/cg": "dev-master",
         "guzzle/guzzle": "3.7.*",
-        "leaphly/cart-bundle": "dev-library",
+        "leaphly/cart-bundle": "dev-0.1.0",
 
         "friendsofsymfony/rest-bundle": "dev-master",
         "willdurand/rest-extra-bundle": "dev-master",
