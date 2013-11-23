@@ -8,31 +8,28 @@
     },
     "require": {
         "php": ">=5.3.3",
-        "symfony/symfony": "2.3.*",
-        "twig/extensions": "1.0.*",
-        "symfony/assetic-bundle": "2.3.*",
-        "symfony/swiftmailer-bundle": "2.3.*",
-        "symfony/monolog-bundle": "2.3.*",
-        "sensio/distribution-bundle": "2.3.*",
-        "sensio/framework-extra-bundle": "2.3.*",
-        "sensio/generator-bundle": "2.3.*",
+        "symfony/symfony": "~2.4",
+        "twig/extensions": "~1.0",
+        "symfony/assetic-bundle": "~2.3",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "sensio/distribution-bundle": "~2.3",
+        "sensio/framework-extra-bundle": "~2.3",
+        "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
-        "doctrine/common": ">=2.2.3,<2.4-dev",
 
-        "leaphly/cart-bundle": "dev-master",
+        "doctrine/mongodb-odm-bundle": "3.0.*@dev",
+        "doctrine/orm": "*",
+        "doctrine/doctrine-bundle": "1.2.*",
+
         "jms/cg": "dev-master",
-        "pugx/godfather": "dev-master",
-        "yohang/finite": "dev-master",
         "guzzle/guzzle": "3.7.*",
-        "jms/serializer-bundle": "dev-master",
+        "leaphly/cart-bundle": "dev-library",
+
         "friendsofsymfony/rest-bundle": "dev-master",
         "willdurand/rest-extra-bundle": "dev-master",
         "nelmio/api-doc-bundle": "2.3.*",
-        "friendsofsymfony/jsrouting-bundle": "dev-master",
-
-        "doctrine/mongodb-odm-bundle": "3.0.*@dev",
-        "doctrine/orm": ">=2.2.3,<2.4-dev",
-        "doctrine/doctrine-bundle": "1.2.*"
+        "friendsofsymfony/jsrouting-bundle": "dev-master"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "dev-master",
