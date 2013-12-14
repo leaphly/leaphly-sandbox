@@ -6,9 +6,12 @@ php:
   - 5.3.3
   - 5.3
   - 5.4
+  - 5.5
 
 before_script:
   - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - composer install --dev --prefer-source
+  - app/console doctrine:database:create --env=orm_test
+  - app/console doctrine:schema:create --env=orm_test
 
 script: bin/phpunit -c app
