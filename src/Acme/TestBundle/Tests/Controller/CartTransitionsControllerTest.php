@@ -2,7 +2,7 @@
 namespace Acme\TestBundle\Tests\Controller;
 
 use Acme\TestBundle\Tests\WebTestCase;
-use Leaphly\CartBundle\Transition\TransitionInterface;
+use Leaphly\Cart\Transition\TransitionInterface;
 
 class CartTransitionsControllerTest extends WebTestCase
 {

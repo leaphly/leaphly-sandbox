@@ -173,7 +173,7 @@ class CartsControllerTest extends WebTestCase
             $data
         );
 
-        $this->assertJsonResponse($this->client->getResponse(), 200, false);
+        $this->assertJsonResponse($this->client->getResponse(), 204, false);
 
         $cart = $this->getContainer()->get('leaphly_cart.cart_manager')->findCartBy(array('identifier' => $identifier));
         $this->assertNotNull($cart);
@@ -202,7 +202,7 @@ class CartsControllerTest extends WebTestCase
             $data
         );
 
-        $this->assertJsonResponse($this->client->getResponse(), 200, false);
+        $this->assertJsonResponse($this->client->getResponse(), 204, false);
 
         $cart = $this->getContainer()->get('leaphly_cart.cart_manager')->findCartBy(array('identifier' => $identifier));
         $this->assertNotNull($cart);
@@ -230,7 +230,7 @@ class CartsControllerTest extends WebTestCase
             $data
         );
 
-        $this->assertJsonResponse($this->client->getResponse(), 200, false);
+        $this->assertJsonResponse($this->client->getResponse(), 204, false);
 
         $cart = $this->getContainer()->get('leaphly_cart.cart_manager')->findCartBy(array('identifier' => $identifier));
         $this->assertNotNull($cart);
@@ -260,7 +260,7 @@ class CartsControllerTest extends WebTestCase
             $data
         );
 
-        $this->assertJsonResponse($this->client->getResponse(), 200, false);
+        $this->assertJsonResponse($this->client->getResponse(), 204, false);
 
         $cart = $this->getContainer()->get('leaphly_cart.cart_manager')->findCartBy(array('id' => $this->cart->getId(), 'expiresAt' => $expireDate));
         $this->assertNotNull($cart);
@@ -273,7 +273,7 @@ class CartsControllerTest extends WebTestCase
                 'env' => 'test',
                 'fixture' => array('Acme\TestBundle\Tests\Fixture\Document\LoadCartData'),
                 'registry_name' => 'doctrine_mongodb',
-                'cart' => '{"id":"5226fd34f874e6d91a8b4567","identifier":"1","expiresAt":"invalid date","createdAt":"invalid date","updatedAt":"2013-09-04T11:28:20+0200","items":[{"id":"5226fd34f874e6d91a8b4568","name":"Shoes"},{"id":"5226fd34f874e6d91a8b4569","name":"Tshirt"}],"currency":"invalid currency","state":100}'
+                'cart' => '{"id":"5226fd34f874e6d91a8b4567","identifier":"1","expiresAt":"invalid date","createdAt":"invalid date","updatedAt":"2013-09-04T11:28:20+0204","items":[{"id":"5226fd34f874e6d91a8b4568","name":"Shoes"},{"id":"5226fd34f874e6d91a8b4569","name":"Tshirt"}],"currency":"invalid currency","state":100}'
 
             ),
             'mongo_test invalid status'     => array(

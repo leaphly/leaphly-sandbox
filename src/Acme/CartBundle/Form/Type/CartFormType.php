@@ -2,13 +2,13 @@
 
 namespace Acme\CartBundle\Form\Type;
 
-use Leaphly\CartBundle\Form\Type\CartFormType as BaseCartFormType;
+use Leaphly\Cart\Form\Type\CartFormType as BaseCartFormType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  *
  * @author Giulio De Donato <liuggio@gmail.com>
- * @package Leaphly\CartBundle\Form\Type
+ * @package Leaphly\Cart\Form\Type
  */
 class CartFormType extends BaseCartFormType
 {

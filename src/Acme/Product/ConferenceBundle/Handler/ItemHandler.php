@@ -4,11 +4,11 @@ namespace Acme\Product\ConferenceBundle\Handler;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Symfony\Component\Form\FormFactoryInterface;
-use Leaphly\CartBundle\Provider\ProductFamilyProviderInterface;
-use Leaphly\CartBundle\Model\CartInterface;
-use Leaphly\CartBundle\Model\ItemInterface;
-use Leaphly\CartBundle\Handler\ItemHandlerInterface;
-use Leaphly\CartBundle\Handler\ItemHandler as BaseItemHandler;
+use Leaphly\Cart\Provider\ProductFamilyProviderInterface;
+use Leaphly\Cart\Model\CartInterface;
+use Leaphly\Cart\Model\ItemInterface;
+use Leaphly\Cart\Handler\ItemHandlerInterface;
+use Leaphly\Cart\Handler\ItemHandler as BaseItemHandler;
 
 class ItemHandler extends BaseItemHandler implements ItemHandlerInterface
 {
@@ -80,7 +80,7 @@ class ItemHandler extends BaseItemHandler implements ItemHandlerInterface
      */
     protected  function findProduct(array $parameters)
     {
-        $productRepository = $this->objectManager->getRepository('\Acme\CartBundle\Document\Product');
+        $productRepository = $this->objectManager->getRepository($this->productClass);
 
         if(!isset($parameters[ProductFamilyProviderInterface::PRODUCT_ID_PARAMETER])) {
             throw new \Exception("Product not found");

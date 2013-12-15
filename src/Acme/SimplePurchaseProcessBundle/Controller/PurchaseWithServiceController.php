@@ -4,11 +4,11 @@ namespace Acme\SimplePurchaseProcessBundle\Controller;
 
 use Acme\CartBundle\Entity\Cart;
 use Acme\SimplePurchaseProcessBundle\Type\CreditCardType;
-use Leaphly\CartBundle\Form\Exception\InvalidFormException;
+use Leaphly\Cart\Form\Exception\InvalidFormException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 use Symfony\Component\Security\Core\SecurityContext;
-use Leaphly\CartBundle\Transition\TransitionInterface;
+use Leaphly\Cart\Transition\TransitionInterface;
 
 class PurchaseWithServiceController extends Controller
 {
