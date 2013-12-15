@@ -1,6 +1,5 @@
 <div class="container">
     <div class="demo-row typography-row row" id="demo">
-
         <h2>Demo
             <a title="Permalink to this headline" href="#demo" class="headerlink">¶</a>
         </h2>
@@ -37,9 +36,7 @@
                             <p>{{ ticket_product.price }} &euro;</p>
                         </h4>
                         <p>{{ ticket_product.name }}</p>
-
                     </div>
-
                     <div class="login-form item-form col-md-8">
                         <form  name="ticket_form" id="ticket_form" action="{{path('api_1_post_cart_item', {'cart_id': 123}) }}" method="post" {{ form_enctype(ticket_form) }}>
                             {{form(ticket_form)}}
@@ -48,7 +45,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-4">
             <div class="login">
                 <div class="login-screen login-screen-inverse row cart todo">

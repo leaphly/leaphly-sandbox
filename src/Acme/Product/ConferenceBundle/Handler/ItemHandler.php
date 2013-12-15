@@ -80,7 +80,7 @@ class ItemHandler extends BaseItemHandler implements ItemHandlerInterface
      */
     protected  function findProduct(array $parameters)
     {
-        $productRepository = $this->objectManager->getRepository('\Acme\CartBundle\Document\Product');
+        $productRepository = $this->objectManager->getRepository($this->productClass);
 
         if(!isset($parameters[ProductFamilyProviderInterface::PRODUCT_ID_PARAMETER])) {
             throw new \Exception("Product not found");

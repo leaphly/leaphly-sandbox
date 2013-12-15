@@ -24,7 +24,7 @@
 
         "jms/cg": "dev-master",
         "guzzle/guzzle": "3.7.*",
-        "leaphly/cart-bundle": "dev-master",
+        "leaphly/cart-bundle": "0.1.x-dev",
 
         "friendsofsymfony/rest-bundle": "~1.1",
         "willdurand/rest-extra-bundle": "~0.2",
@@ -64,7 +64,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "0.2.x-dev"
+            "dev-master": "0.1.x-dev"
         }
     }
 }
