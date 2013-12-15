@@ -7,7 +7,7 @@ use Acme\TestBundle\Tests\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
 use Symfony\Component\BrowserKit\Cookie;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Leaphly\CartBundle\Form\Exception\InvalidFormException;
+use Leaphly\Cart\Form\Exception\InvalidFormException;
 
 class CartItemsControllerTest extends WebTestCase
 {

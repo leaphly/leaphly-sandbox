@@ -2,7 +2,7 @@
 
 namespace Acme\Product\ConferenceBundle\Document;
 
-use Leaphly\CartBundle\Model\Item as BaseItem;
+use Leaphly\Cart\Model\Item as BaseItem;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use JMS\Serializer\Annotation\Type;
 
