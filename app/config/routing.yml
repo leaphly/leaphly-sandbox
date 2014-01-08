@@ -6,6 +6,13 @@ simple_purchase_process:
     resource: "@SimplePurchaseProcessBundle/Resources/config/routing.xml"
     prefix:   /purchase-process
 
+leaphly_content_install_sandbox:
+    path: /install-the-sandbox
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: http://doc.leaphly.org/book/installation.html
+        permanent: true
+
 leaphly_cart:
     type: rest
     resource: "@AcmeCartBundle/Resources/config/rest.xml"

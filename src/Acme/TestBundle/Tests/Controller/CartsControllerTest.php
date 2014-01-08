@@ -1,8 +1,7 @@
 <?php
 namespace Acme\TestBundle\Tests\Controller;
-use Acme\TestBundle\Fixture\FixtureCollector;
+
 use Acme\TestBundle\Tests\WebTestCase;
-use Doctrine\Common\Util\Debug;
 
 class CartsControllerTest extends WebTestCase
 {
