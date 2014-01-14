@@ -7,7 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 /**
  *
  * @author Giulio De Donato <liuggio@gmail.com>
- * @package Leaphly\CartBundle\Form\Type
+ * @package Leaphly\Cart\Form\Type
  */
 class LimitedCartFormType extends BaseCartFormType
 {

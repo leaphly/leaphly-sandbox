@@ -2,7 +2,11 @@
 namespace Acme\CartBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+<<<<<<< HEAD
+use Doctrine\Common\Collections\ArrayCollection;
+=======
 use \Doctrine\Common\Collections\ArrayCollection;
+>>>>>>> 9aa47aa3f4e129c2e5b6787d239e81565dbb0fb7
 use Leaphly\Cart\Model\Cart as BaseCart;
 
 /**

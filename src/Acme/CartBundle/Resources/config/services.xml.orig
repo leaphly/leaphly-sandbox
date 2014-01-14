@@ -6,7 +6,11 @@
     <parameters>
         <parameter key="acme_cart.product_handler.class">Acme\CartBundle\Manager\ProductManager</parameter>
         <parameter key="acme_cart.product_family_provider.class">Leaphly\Cart\Provider\ClassNameProductFamilyProvider</parameter>
+<<<<<<< HEAD
+        <parameter key="acme_cart.price_listener.class">Acme\CartBundle\Listener\ItemListener</parameter>
+=======
         <parameter key="acme_cart.price_listener.class">Acme\Cart\Listener\ItemListener</parameter>
+>>>>>>> 9aa47aa3f4e129c2e5b6787d239e81565dbb0fb7
         <parameter key="acme_cart.price_listener.event_name" type="constant">\Leaphly\Cart\LeaphlyCartEvents::ITEM_CREATE_SUCCESS</parameter>
     </parameters>
 

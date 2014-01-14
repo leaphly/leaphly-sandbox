@@ -19,22 +19,22 @@
         "incenteev/composer-parameter-handler": "~2.0",
 
         "doctrine/mongodb-odm-bundle": "3.0.*@dev",
-        "doctrine/orm": "*",
-        "doctrine/doctrine-bundle": "1.2.*",
+        "doctrine/orm": "~2.4",
+        "doctrine/doctrine-bundle": "~1.2",
 
         "jms/cg": "dev-master",
         "guzzle/guzzle": "3.7.*",
-        "leaphly/cart-bundle": "dev-master",
+        "leaphly/cart-bundle": "0.1.x-dev",
 
-        "friendsofsymfony/rest-bundle": "dev-master",
-        "willdurand/rest-extra-bundle": "dev-master",
-        "nelmio/api-doc-bundle": "2.3.*",
-        "friendsofsymfony/jsrouting-bundle": "dev-master"
+        "friendsofsymfony/rest-bundle": "~1.1",
+        "willdurand/rest-extra-bundle": "~0.2",
+        "nelmio/api-doc-bundle": "2.4.*",
+        "friendsofsymfony/jsrouting-bundle": "~1.4"
     },
     "require-dev": {
-        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "doctrine/doctrine-fixtures-bundle": "~2.2",
         "phpunit/phpunit": "3.7.*",
-        "liip/functional-test-bundle":"dev-master",
+        "liip/functional-test-bundle":"~1.0",
         "guzzle/plugin": "3.7.*"
     },
     "scripts": {
@@ -64,7 +64,7 @@
             "file": "app/config/parameters.yml"
         },
         "branch-alias": {
-            "dev-master": "2.3-dev"
+            "dev-master": "0.1.x-dev"
         }
     }
 }
