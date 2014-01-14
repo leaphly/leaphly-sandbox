@@ -1,7 +1,6 @@
 <?php
 namespace Acme\SimplePurchaseProcessBundle\Entity;
 
-
 class User
 {
     protected $username;

@@ -3,7 +3,6 @@ namespace Acme\SimplePurchaseProcessBundle\Tests;
 
 use Acme\CartBundle\Tests\Fixture\FixtureCollector;
 use Liip\FunctionalTestBundle\Test\WebTestCase as BaseWebTestCase;
-use Symfony\Component\BrowserKit\Cookie;
 
 class WebTestCase extends BaseWebTestCase
 {

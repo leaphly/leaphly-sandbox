@@ -14,14 +14,14 @@ class CreditCardType extends AbstractType
         for ($i = 1; $i <= 12; $i++) {
             $months[$i] = $i;
         }
-        
+
         $years = array();
         $today = new \DateTime();
         $thisYear = $today->format('Y');
         for ($y = $thisYear; $y <= $thisYear + 15; $y++) {
             $years[$y] = $y;
         }
-        
+
         $builder->add('number', 'text');
         $builder->add('expiry_date_month', 'choice', array(
                             'choices'   => $months,
@@ -41,7 +41,8 @@ class CreditCardType extends AbstractType
         return 'credit_card';
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver)    {
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
         $fixedOptions = array(
                             'data_class' => 'Acme\SimplePurchaseProcessBundle\Entity\CreditCard',
                         );

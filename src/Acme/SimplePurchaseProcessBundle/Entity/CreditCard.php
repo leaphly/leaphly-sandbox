@@ -3,33 +3,33 @@ namespace Acme\SimplePurchaseProcessBundle\Entity;
 
 use Symfony\Component\Validator\ExecutionContext;
 
-class CreditCard {
-    
+class CreditCard
+{
     /**
      * @var string $number
      */
     protected $number;
-    
+
     /**
      * @var integer $expiry_date_month
      */
     protected $expiry_date_month;
-    
+
     /**
      * @var integer $expiry_date_year
      */
     protected $expiry_date_year;
-    
+
     /**
      * @var text $csc
      */
     protected $cvv;
-    
+
     /**
      * @var text $card_holder
      */
     protected $card_holder;
-    
+
     /**
      * @var text $card_type
      */
@@ -49,7 +49,7 @@ class CreditCard {
     {
         return $this->card_type;
     }
-    
+
     /**
      * @param string $card_type
      */
@@ -57,31 +57,31 @@ class CreditCard {
     {
         $this->card_type = $card_type;
     }
-    
+
     /**
-     * @return string 
+     * @return string
      */
     public function getNumber()
     {
         return $this->number;
     }
-    
+
     /**
-     * @param string $number 
+     * @param string $number
      */
     public function setNumber($number)
     {
         $this->number = $number;
     }
-    
+
     /**
-     * @return integer 
+     * @return integer
      */
     public function getExpiryDateMonth()
     {
         return $this->expiry_date_month;
     }
-    
+
     /**
      * @param integer $month
      */
@@ -89,15 +89,15 @@ class CreditCard {
     {
         $this->expiry_date_month = $month;
     }
-    
+
     /**
-     * @return integer 
+     * @return integer
      */
     public function getExpiryDateYear()
     {
         return $this->expiry_date_year;
     }
-    
+
     /**
      * @param integer $year
      */
@@ -105,15 +105,15 @@ class CreditCard {
     {
         $this->expiry_date_year = $year;
     }
-    
+
     /**
-     * @return string 
+     * @return string
      */
     public function getCvv()
     {
         return $this->cvv;
     }
-    
+
     /**
      * @param string $csc
      */
@@ -121,23 +121,23 @@ class CreditCard {
     {
         $this->cvv = $cvv;
     }
-    
+
     /**
-     * @return string 
+     * @return string
      */
     public function getCardHolder()
     {
         return $this->card_holder;
     }
-    
+
     /**
-     * @param string $cardHolder 
+     * @param string $cardHolder
      */
     public function setCardHolder($cardHolder)
     {
         $this->card_holder = $cardHolder;
     }
-    
+
     public function isExpireDateValid(ExecutionContext $context)
     {
         $now = new \DateTime();
@@ -145,7 +145,7 @@ class CreditCard {
         $thisMonth = (int) $now->format('m');
         $expYear = (int) $this->getExpiryDateYear();
         $expMonth = (int) $this->getExpiryDateMonth();
-        
+
         if ($thisYear > $expYear  || ($thisYear == $expYear && $thisMonth > $expMonth)) {
             $context->addViolationAt('expiry_date_month', 'expired card', array(), null);
         }

@@ -3,6 +3,9 @@ namespace Acme\TestBundle\Tests\Controller;
 
 use Acme\TestBundle\Tests\WebTestCase;
 
+/**
+ * @group functional
+ */
 class CartsControllerTest extends WebTestCase
 {
     /**
@@ -17,7 +20,7 @@ class CartsControllerTest extends WebTestCase
         $response = $this->client->getResponse();
         $this->assertJsonResponse($response, 200);
         $content = $response->getContent();
-       // $content = '{"id": 1}'; //expected
+        // $content = '{"id": 1}'; //expected
         $decoded = json_decode($content, true);
         $this->assertTrue(isset($decoded['id']));
     }
@@ -144,7 +147,6 @@ class CartsControllerTest extends WebTestCase
 
         $this->assertJsonResponse($this->client->getResponse(), 204, false);
     }
-
 
     // ----------------------------------------------------------------------
     // PUT Section

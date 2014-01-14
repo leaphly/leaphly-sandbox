@@ -74,15 +74,15 @@ class ItemHandler extends BaseItemHandler implements ItemHandlerInterface
     /**
      * It assumes that your are using the product_id parameter method.
      *
-     * @param array $parameters
+     * @param  array      $parameters
      * @return object
      * @throws \Exception
      */
-    protected  function findProduct(array $parameters)
+    protected function findProduct(array $parameters)
     {
         $productRepository = $this->objectManager->getRepository($this->productClass);
 
-        if(!isset($parameters[ProductFamilyProviderInterface::PRODUCT_ID_PARAMETER])) {
+        if (!isset($parameters[ProductFamilyProviderInterface::PRODUCT_ID_PARAMETER])) {
             throw new \Exception("Product not found");
         }
 

@@ -4,8 +4,6 @@ namespace Acme\Product\CartBundle\Tests\DependencyInjection;
 
 use Acme\CartBundle\DependencyInjection\AcmeCartExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Leaphly\CartBundle\DependencyInjection\LeaphlyCartExtension;
-use Symfony\Component\Yaml\Parser;
 
 /**
  *

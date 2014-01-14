@@ -63,7 +63,6 @@ class TshirtItem extends BaseItem
         return $this->product;
     }
 
-
     /**
      * @param mixed $quantity
      */
@@ -95,8 +94,6 @@ class TshirtItem extends BaseItem
     {
         return $this->sku;
     }
-
-
 
     /**
      * @param mixed $color

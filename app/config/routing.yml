@@ -12,7 +12,7 @@ leaphly_content_install_sandbox:
         _controller: FrameworkBundle:Redirect:urlRedirect
         path: http://doc.leaphly.org/book/installation.html
         permanent: true
-
+#
 leaphly_cart:
     type: rest
     resource: "@AcmeCartBundle/Resources/config/rest.xml"

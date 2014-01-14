@@ -5,7 +5,6 @@ namespace Acme\SimplePurchaseProcessBundle\Controller;
 use Acme\SimplePurchaseProcessBundle\Type\CreditCardType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Leaphly\Cart\Transition\TransitionInterface;
-use Guzzle\Http\Client as HTTPClient;
 use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
 
 class PurchaseWithRestController extends Controller
@@ -56,6 +55,7 @@ class PurchaseWithRestController extends Controller
         // Creates the credit card form, and shows it.
         $form = $this->createForm(new CreditCardType());
         $targetPath = $this->get('router')->generate('simple_purchase_process_rest_make_payment', array(), true);
+
         return $this->render('SimplePurchaseProcessBundle:Purchase:creditCard.html.twig',
             array('formCreditCard' => $form->createView(), 'targetPath' => $targetPath)
         );
@@ -104,7 +104,6 @@ class PurchaseWithRestController extends Controller
 
         return $this->render('SimplePurchaseProcessBundle:Purchase:thankyou.html.twig', array('cart' => $cart));
     }
-
 
     private function getCartFromSession()
     {

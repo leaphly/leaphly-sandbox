@@ -6,8 +6,6 @@ use Acme\CartBundle\Entity\Cart;
 use Acme\SimplePurchaseProcessBundle\Type\CreditCardType;
 use Leaphly\Cart\Form\Exception\InvalidFormException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
-use Symfony\Component\Security\Core\SecurityContext;
 use Leaphly\Cart\Transition\TransitionInterface;
 
 class PurchaseWithServiceController extends Controller
@@ -41,7 +39,7 @@ class PurchaseWithServiceController extends Controller
         // retrieves the cart id from the session and then fetches it via Service Container
         $cart = $this->getCartFromSession();
 
-        try{
+        try {
             // patches the cart associating the user to the cart
             $cart = $this->get('leaphly_cart.cart.full.handler')
                 ->patchCart($cart, array('customer' => $this->getUser()->getUsername()));
@@ -56,6 +54,7 @@ class PurchaseWithServiceController extends Controller
         // Creates the credit card form, and shows it.
         $form = $this->createForm(new CreditCardType());
         $targetPath = $this->get('router')->generate('simple_purchase_process_service_make_payment', array(), true);
+
         return $this->render('SimplePurchaseProcessBundle:Purchase:creditCard.html.twig',
             array('formCreditCard' => $form->createView(), 'targetPath' => $targetPath)
         );
@@ -105,7 +104,6 @@ class PurchaseWithServiceController extends Controller
 
         return $this->render('SimplePurchaseProcessBundle:Purchase:thankyou.html.twig', array('cart' => $cart));
     }
-
 
     private function getCartFromSession()
     {

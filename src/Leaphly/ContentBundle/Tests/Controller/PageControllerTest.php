@@ -4,6 +4,9 @@ namespace Leaphly\ContentBundle\Tests\Controller;
 
 use Liip\FunctionalTestBundle\Test\WebTestCase;
 
+/**
+ * @group functional
+ */
 class PageControllerTest extends WebTestCase
 {
     public function testIndex()

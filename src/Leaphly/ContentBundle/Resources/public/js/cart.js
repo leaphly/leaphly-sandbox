@@ -1,7 +1,7 @@
 (function(){
 
     if(typeof(Storage) =="undefined"){
-        alert('Sorry! No web storage support. Please install a moder web Browser');
+        alert('Sorry! No web storage support. Please install a modern web Browser');
     }
 
     var cart_template = Handlebars.compile($("#cart-template").html());
@@ -86,14 +86,21 @@
                 }
             });
         },
+        getFromLocation: function(location){
+            var that = this;
+            $.get( location, function( data ) {
+                that.set_id(data.id);
+                return that.draw(data);
+            });
+        },
         create: function(){
             var that = this;
             var route = Routing.generate(
                 this.urls['post'],{_format: "json"}
             );
-            $.post(route,function(data){
-                that.set_id(data.id);
-                return that.draw(data);
+            $.post(route,function(data, text, xhr){
+                var header_location = xhr.getResponseHeader("Location");
+                return that.getFromLocation(header_location);
             })
         },
         delete: function(id){

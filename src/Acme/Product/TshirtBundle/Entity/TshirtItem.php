@@ -100,5 +100,4 @@ class TshirtItem extends BaseItem
         return $this->sku;
     }
 
-
 }

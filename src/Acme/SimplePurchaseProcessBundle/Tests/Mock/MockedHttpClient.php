@@ -10,8 +10,6 @@
 
 namespace Acme\SimplePurchaseProcessBundle\Tests\Mock;
 
-
-use Guzzle\Http\Client;
 use Guzzle\Http\Message\Response;
 
 class MockedHttpClient

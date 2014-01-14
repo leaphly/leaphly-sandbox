@@ -35,7 +35,7 @@ class AppKernel extends Kernel
         // if is mongo or orm load modules
         if (in_array($this->getEnvironment(), array('dev', 'test', 'prod'))) {
             $bundles[] = new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle();
-        } else if (in_array($this->getEnvironment(), array('orm_dev', 'orm_test', 'orm_prod'))) {
+        } elseif (in_array($this->getEnvironment(), array('orm_dev', 'orm_test', 'orm_prod'))) {
             $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
             $bundles[] = new Doctrine\Bundle\DoctrineBundle\DoctrineBundle();
         }

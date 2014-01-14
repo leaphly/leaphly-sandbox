@@ -17,13 +17,11 @@ class TicketItem extends BaseItem
      */
     protected $conferenceName;
 
-
     /**
      * @var \Datetime $when
      * @ORM\Column(type="datetime", nullable=true, name="when_date")
      */
     protected $when;
-
 
     /**
      * @var string $position
@@ -31,13 +29,11 @@ class TicketItem extends BaseItem
      */
     protected $position;
 
-
     /**
      * @var integer $adults
      * @ORM\Column(type="integer", nullable=true)
      */
     protected $adults;
-
 
     /**
      * @var integer $children
@@ -147,6 +143,5 @@ class TicketItem extends BaseItem
     {
         return $this->when;
     }
-
 
 }

@@ -28,7 +28,6 @@ class AcmeCartExtension extends Extension
         $this->loadDbDriver($config, $container, $loader);
     }
 
-
     private function loadDbDriver($config, ContainerBuilder $container, XmlFileLoader $loader)
     {
         $loader->load(sprintf('%s.xml', $config['db_driver']));
