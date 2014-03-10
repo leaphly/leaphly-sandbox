@@ -89,7 +89,7 @@ class PurchaseControllerTest extends WebTestCase
             array(
                 'credit_card[card_holder]'       =>'test',
                 'credit_card[number]'            => 'aa',
-                'credit_card[expiry_date_year]'  => '2013',
+                'credit_card[expiry_date_year]'  => date("Y"),
                 'credit_card[expiry_date_month]' => '12',
                 'credit_card[cvv]'               =>'admin',
             ), 'POST');

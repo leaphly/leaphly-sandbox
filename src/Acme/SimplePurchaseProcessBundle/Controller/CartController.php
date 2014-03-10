@@ -10,20 +10,22 @@ use Acme\Product\TshirtBundle\Document\TshirtItem;
 
 class CartController extends Controller
 {
-
+    /**
+     * Thought to have fixtures see how to install the sandbox.
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function playAction()
     {
         $conference = $this->get('doctrine_mongodb')
             ->getRepository('AcmeConferenceBundle:TicketProduct')
-            ->findBy(array(), null, $limit = 1)
-            ->getSingleResult();
+            ->findOneBy(array(), null, $limit = 1);
 
         $ticketForm = $this->createForm(new TicketItemType($conference->getId()));
 
         $productShirt = $this->get('doctrine_mongodb')
             ->getRepository('AcmeTshirtBundle:TshirtProduct')
-            ->findBy(array(), null, $limit = 1)
-            ->getSingleResult();
+            ->findOneBy(array(), null, $limit = 1);
 
         $shirtForm = $this->createForm(new TshirtItemType($productShirt->getId()));
 
