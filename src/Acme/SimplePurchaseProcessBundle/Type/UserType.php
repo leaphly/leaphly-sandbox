@@ -6,14 +6,15 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class UserType extends AbstractType
 {
-    public function buildForm( FormBuilderInterface $builder,
-                               array $options )
+    public function buildForm(FormBuilderInterface $builder,
+                               array $options)
     {
         $builder->add( 'username', 'text' );
         $builder->add( 'password', 'password' );
     }
 
-    function getName() {
+    public function getName()
+    {
         return 'UserType';
     }
 }

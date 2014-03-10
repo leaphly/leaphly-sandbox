@@ -9,7 +9,7 @@ class CartTransitionsControllerTest extends WebTestCase
     /**
      * @dataProvider multiEnvProvider
      */
-    public function  testPostCartTransitionAction($env, $fixtures, $registryName)
+    public function testPostCartTransitionAction($env, $fixtures, $registryName)
     {
         $this->customSetUp($env, $fixtures, $registryName);
         $this->adminLogIn($this->client);
@@ -38,7 +38,7 @@ class CartTransitionsControllerTest extends WebTestCase
     /**
      * @dataProvider multiEnvProvider
      */
-    public function  testPostCartTransitionFailAction($env, $fixtures, $registryName)
+    public function testPostCartTransitionFailAction($env, $fixtures, $registryName)
     {
         $this->customSetUp($env, $fixtures, $registryName);
         $this->adminLogIn($this->client);

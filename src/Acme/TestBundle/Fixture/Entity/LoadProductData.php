@@ -2,7 +2,6 @@
 
 namespace Acme\TestBundle\Fixture\Entity;
 
-
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;;
 use Acme\Product\TshirtBundle\Entity\TshirtProduct;

@@ -5,9 +5,6 @@ use Acme\TestBundle\Fixture\FixtureCollector;
 
 use Acme\TestBundle\Tests\WebTestCase;
 use Symfony\Bundle\FrameworkBundle\Client;
-use Symfony\Component\BrowserKit\Cookie;
-use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
-use Leaphly\Cart\Form\Exception\InvalidFormException;
 
 class CartItemsControllerTest extends WebTestCase
 {
@@ -142,7 +139,7 @@ class CartItemsControllerTest extends WebTestCase
     /**
      * @dataProvider multiEnvProvider
      */
-    public function  testPostCartItemFullAccessAction($env, $fixtures, $registryName)
+    public function testPostCartItemFullAccessAction($env, $fixtures, $registryName)
     {
         $this->customSetUp($env, $fixtures, $registryName);
         $this->adminLogIn($this->client);
@@ -172,7 +169,7 @@ class CartItemsControllerTest extends WebTestCase
     /**
      * @dataProvider multiEnvProvider
      */
-    public function  testFailingPostCartItemLimitedAccessAction($env, $fixtures, $registryName)
+    public function testFailingPostCartItemLimitedAccessAction($env, $fixtures, $registryName)
     {
         $this->customSetUp($env, $fixtures, $registryName);
         $route =  $this->getUrl('api_1_post_cart_item', array('cart_id' => $this->cart->getId(),  '_format' => 'json'));

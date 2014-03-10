@@ -5,8 +5,8 @@ namespace Acme\TestBundle\Fixture;
 /**
  * Class FixtureCollector, just a fixture container, useful when you need the Id of the entity inserted.
  */
-final class FixtureCollector {
-
+final class FixtureCollector
+{
     const MONGODB = 'doctrine_mongodb';
     const ORM = 'doctrine';
 
@@ -35,6 +35,7 @@ final class FixtureCollector {
     public static function getProducts($doctrine)
     {
         $products = isset(self::$products[$doctrine])? self::$products[$doctrine] : array();
+
         return $products;
     }
 }

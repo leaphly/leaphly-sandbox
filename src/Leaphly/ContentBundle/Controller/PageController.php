@@ -22,4 +22,3 @@ class PageController extends Controller
             array('content'=>$content));
     }
 }
-

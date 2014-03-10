@@ -3,10 +3,8 @@
 namespace Acme\SimplePurchaseProcessBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Acme\Product\ConferenceBundle\Document\TicketItem;
 use Acme\Product\ConferenceBundle\Form\TicketItemType;
 use Acme\Product\TshirtBundle\Form\TshirtItemType;
-use Acme\Product\TshirtBundle\Document\TshirtItem;
 
 class CartController extends Controller
 {

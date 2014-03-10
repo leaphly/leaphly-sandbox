@@ -29,20 +29,17 @@ class TicketItem extends BaseItem
      */
     protected $when;
 
-
     /**
      * @var
      * @MongoDB\Field(type="string")
      */
     protected $position;
 
-
     /**
      * @var
      * @MongoDB\Field(type="int")
      */
     protected $adults;
-
 
     /**
      * @var
@@ -71,7 +68,6 @@ class TicketItem extends BaseItem
     {
         return $this->product;
     }
-
 
     /**
      * @param mixed $adults
@@ -136,7 +132,6 @@ class TicketItem extends BaseItem
     {
         return $this->when;
     }
-
 
     /**
      * @param string $conferenceName

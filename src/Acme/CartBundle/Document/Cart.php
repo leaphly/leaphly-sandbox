@@ -5,12 +5,6 @@ namespace Acme\CartBundle\Document;
 use Doctrine\Common\Collections\ArrayCollection;
 use Leaphly\Cart\Model\Cart as BaseCart;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
-use JMS\Serializer\Annotation\ExclusionPolicy;
-use JMS\Serializer\Annotation\Groups;
-use JMS\Serializer\Annotation\Accessor;
-use JMS\Serializer\Annotation\Expose;
-use JMS\Serializer\Annotation\SerializedName;
-use JMS\Serializer\Annotation\Type;
 
 /**
  * @MongoDB\Document

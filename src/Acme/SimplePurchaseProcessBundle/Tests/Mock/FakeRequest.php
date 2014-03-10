@@ -10,7 +10,6 @@
 
 namespace Acme\SimplePurchaseProcessBundle\Tests\Mock;
 
-
 use Guzzle\Http\Message\Request;
 
 class FakeRequest extends Request
