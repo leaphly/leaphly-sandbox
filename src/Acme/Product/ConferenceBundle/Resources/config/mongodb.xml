@@ -18,7 +18,7 @@
             <argument type="service" id="form.factory"/>
             <argument>%acme_conference.item.class%</argument>
             <argument>%acme_conference.item.form_type.limited.class%</argument>
-            <argument>%acme_tshirt.product.class%</argument>
+            <argument>%acme_conference.product.class%</argument>
             <tag name="godfather.strategy" instance='limited' context_name="item_handler" context_key="TicketProduct" />
         </service>
 
@@ -27,7 +27,7 @@
             <argument type="service" id="form.factory"/>
             <argument>%acme_conference.item.class%</argument>
             <argument>%acme_conference.item.form_type.full.class%</argument>
-            <argument>%acme_tshirt.product.class%</argument>
+            <argument>%acme_conference.product.class%</argument>
             <tag name="godfather.strategy" instance='full' context_name="item_handler" context_key="TicketProduct" />
         </service>
     </services>

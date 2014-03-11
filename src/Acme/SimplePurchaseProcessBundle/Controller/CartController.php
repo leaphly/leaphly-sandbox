@@ -17,13 +17,13 @@ class CartController extends Controller
     {
         $conference = $this->get('doctrine_mongodb')
             ->getRepository('AcmeConferenceBundle:TicketProduct')
-            ->findOneBy(array(), null, $limit = 1);
+            ->findOneBy(array(), null);
 
         $ticketForm = $this->createForm(new TicketItemType($conference->getId()));
 
         $productShirt = $this->get('doctrine_mongodb')
             ->getRepository('AcmeTshirtBundle:TshirtProduct')
-            ->findOneBy(array(), null, $limit = 1);
+            ->findOneBy(array(), null);
 
         $shirtForm = $this->createForm(new TshirtItemType($productShirt->getId()));
 

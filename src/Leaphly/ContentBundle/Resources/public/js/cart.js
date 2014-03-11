@@ -86,14 +86,29 @@
                 }
             });
         },
+        fetch_location: function(location){
+
+            that = this
+            return  $.ajax({
+                url: location,
+                type: "GET",
+                success: function(data){
+                    that.set_id(data.id);
+                    return that.draw(data);
+                },
+                error: function(content){
+                    that.create();
+                }
+            });
+        },
         create: function(){
             var that = this;
             var route = Routing.generate(
                 this.urls['post'],{_format: "json"}
             );
-            $.post(route,function(data){
-                that.set_id(data.id);
-                return that.draw(data);
+            $.post(route, null, function(data, text, xhr) {
+
+                return that.fetch_location(xhr.getResponseHeader('location'));
             })
         },
         delete: function(id){
