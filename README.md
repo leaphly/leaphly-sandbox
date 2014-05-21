@@ -25,6 +25,6 @@ See the [Install the sandbox][1] chapter of the website.
 
 Enjoy!
 
-[1]:  http://leaphly.org/install-the-sandbox/
+[1]:  http://leaphly.org/install-the-sandbox
 [2]:  http://getcomposer.org/
 [3]:  http://doc.leaphly.org/book/sandbox.html
