@@ -106,10 +106,21 @@
             var route = Routing.generate(
                 this.urls['post'],{_format: "json"}
             );
-            $.post(route, null, function(data, text, xhr) {
-
-                return that.fetch_location(xhr.getResponseHeader('location'));
-            })
+            $.ajax({
+                url: route,
+                type: 'POST',
+                success: function(xhr, status, error) {
+                    return that.fetch_location(xhr.getResponseHeader('location'));
+                },
+                // jquery treats an empty response as a parse error
+                error: function(xhr, status, error) {
+                    if(xhr.status == 201) {
+                        return that.fetch_location(xhr.getResponseHeader('location'));
+                    } else {
+                        that.handleError(xhr);
+                    }
+                }
+            });
         },
         delete: function(id){
             var that = this;
